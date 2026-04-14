@@ -33,11 +33,15 @@ src/
 │   │   ├── Input.tsx          ← Input testo con label, errore, stati focus/disabled
 │   │   ├── Skeleton.tsx       ← Placeholder loading con animate-pulse
 │   │   └── Textarea.tsx       ← Textarea con stessi stati di Input
+│   ├── sections/
+│   │   └── ServicesSection.tsx ← Sezione servizi homepage (griglia 4 card, Calendly CTA, newsletter)
 │   └── shapes/
 │       ├── index.ts           ← Barrel export: tutti i blob SVG
 │       ├── BlobHero.tsx       ← SVG blob principale (hero decorativo)
 │       ├── BlobFrame.tsx      ← SVG blob per frame/avatar
 │       └── BlobSection.tsx    ← SVG blob per sezioni di contenuto
+├── data/
+│   └── services.ts            ← Array servizi, tipi Service/IncludedService, URL Calendly placeholder
 └── lib/
     └── fonts.ts               ← Cormorant Garamond + DM Sans con variabili CSS
 docs/
@@ -72,6 +76,7 @@ npx tsc --noEmit # type check
 
 ## Recent Changes
 
+- 002-sezione-servizi: Sezione servizi completa — 4 card (Consulenza Gratuita, Prima Visita, Visite di Controllo, Visita Online), Calendly popup widget, IncludedServicesBanner newsletter, ServicesCtaBanner. T001–T013 completi. URL Calendly placeholder (da aggiornare con URL reali dalla Dott.ssa).
 - 001-design-system: Design system completo — Phase 1–5 implemented (T001–T031, T033). Pending: T032 (Vercel deploy), T034 (FOUT check), T035 (Playwright smoke test), T036 (rimuovi brand-review post-approvazione)
 
 <!-- MANUAL ADDITIONS START -->

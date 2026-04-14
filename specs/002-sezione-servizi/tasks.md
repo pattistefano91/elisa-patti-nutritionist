@@ -11,8 +11,8 @@
 **Purpose**: Dati e script di terze parti pronti prima di qualsiasi componente.
 **⚠️ BLOCCA tutte le user story** — completare prima di procedere.
 
-- [ ] T001 Creare `src/data/services.ts` — definire tipi `ServiceMode`, `Service`, `IncludedService`; esportare `SERVICES: Service[]` (4 voci con contenuti reali da sito.docx), `INCLUDED_SERVICES: IncludedService[]` (newsletter Nutrizione Pratica), `SERVICES_CTA_URL: string` (alias di `SERVICES[0].calendlyUrl`); URL Calendly placeholder `https://calendly.com/elisapatti/[servizio]`
-- [ ] T002 Aggiornare `src/app/layout.tsx` — aggiungere `<Script src="https://assets.calendly.com/assets/external/widget.js" strategy="lazyOnload" />` (next/script) e `<link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />` nell'`<head>`
+- [x] T001 Creare `src/data/services.ts` — definire tipi `ServiceMode`, `Service`, `IncludedService`; esportare `SERVICES: Service[]` (4 voci con contenuti reali da sito.docx), `INCLUDED_SERVICES: IncludedService[]` (newsletter Nutrizione Pratica), `SERVICES_CTA_URL: string` (alias di `SERVICES[0].calendlyUrl`); URL Calendly placeholder `https://calendly.com/elisapatti/[servizio]`
+- [x] T002 Aggiornare `src/app/layout.tsx` — aggiungere `<Script src="https://assets.calendly.com/assets/external/widget.js" strategy="lazyOnload" />` (next/script) e `<link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />` nell'`<head>`
 
 **Checkpoint**: `npx tsc --noEmit` pulito. I 4 servizi con i contenuti della Dott.ssa sono nel codice.
 
@@ -26,9 +26,9 @@
 Cliccando "Prenota ora" su una card si apre il popup widget Calendly (o, se bloccato da ad-blocker,
 si apre il link in nuova tab).
 
-- [ ] T003 [P] [US1] Creare `src/components/sections/ServicesSection.tsx` — scheletro del componente con: import `SERVICES`, `SERVICES_CTA_URL` da `@/data/services`; helper function `openCalendly(url: string)` (chiama `window.Calendly?.initPopupWidget({ url })` con fallback `window.open(url, '_blank')`); griglia `grid-cols-1 md:grid-cols-2 gap-6`; titolo sezione "I Percorsi" + sottotitolo; usa `Container` da `@/components/ui`
-- [ ] T004 [P] [US1] Aggiungere componente `ServiceCard` inline in `src/components/sections/ServicesSection.tsx` — usa `Card variant="default" shadow="md"`; mostra `service.name` (heading-4), `service.description` (body-md), `service.duration` (label); `<Button variant="primary" size="md">Prenota ora</Button>` che chiama `openCalendly(service.calendlyUrl)`; `aria-label` descrittivo per accessibilità
-- [ ] T005 [US1] Aggiungere `<ServicesSection />` in `src/app/page.tsx` — inserirlo subito dopo il blocco hero (`<main>`), separato da `<Divider />`
+- [x] T003 [P] [US1] Creare `src/components/sections/ServicesSection.tsx` — scheletro del componente con: import `SERVICES`, `SERVICES_CTA_URL` da `@/data/services`; helper function `openCalendly(url: string)` (chiama `window.Calendly?.initPopupWidget({ url })` con fallback `window.open(url, '_blank')`); griglia `grid-cols-1 md:grid-cols-2 gap-6`; titolo sezione "I Percorsi" + sottotitolo; usa `Container` da `@/components/ui`
+- [x] T004 [P] [US1] Aggiungere componente `ServiceCard` inline in `src/components/sections/ServicesSection.tsx` — usa `Card variant="default" shadow="md"`; mostra `service.name` (heading-4), `service.description` (body-md), `service.duration` (label); `<Button variant="primary" size="md">Prenota ora</Button>` che chiama `openCalendly(service.calendlyUrl)`; `aria-label` descrittivo per accessibilità
+- [x] T005 [US1] Aggiungere `<ServicesSection />` in `src/app/page.tsx` — inserirlo subito dopo il blocco hero (`<main>`), separato da `<Divider />`
 
 **Checkpoint**: Aprire `localhost:3000`. Dopo l'hero compaiono 4 card con nome e descrizione.
 Cliccando "Prenota ora" si apre il popup Calendly o la nuova tab. User Story 1 è MVP completo.
@@ -42,9 +42,9 @@ Cliccando "Prenota ora" si apre il popup Calendly o la nuova tab. User Story 1 �
 **Independent Test**: Mostrare la sezione a 3 persone — devono identificare senza spiegazioni
 quale servizio è gratuito, quale è online e quale prevede pacchetti a lungo termine.
 
-- [ ] T006 [P] [US2] Aggiungere indicatore modalità in `ServiceCard` — mostrare `service.modeLabel` con icona testuale (📍 per "In studio", 💻 per "Online / Telefono") come `text-body-sm` sotto la durata; usa `style={{ color: 'var(--color-neutral-500)' }}`
-- [ ] T007 [P] [US2] Aggiungere rendering badge in `ServiceCard` — se `service.tag` è definito, mostrare `<Badge variant={service.tagVariant ?? 'neutral'}>` in cima alla card, sopra il nome; la card "Consulenza Gratuita" deve mostrare badge variant `accent` con testo "Gratuita"
-- [ ] T008 [US2] Aggiungere bullets opzionali in `ServiceCard` e aggiornare `src/data/services.ts` — se `service.bullets` è definito, mostrare lista `<ul>` con punti chiave (max 3 visibili); aggiornare `SERVICES[2]` (Visite di Controllo) con bullets: "Aggiornamento piano alimentare", "Monitoraggio progressi", "Percorsi a pacchetto 3 o 6 mesi"
+- [x] T006 [P] [US2] Aggiungere indicatore modalità in `ServiceCard` — mostrare `service.modeLabel` con icona testuale (📍 per "In studio", 💻 per "Online / Telefono") come `text-body-sm` sotto la durata; usa `style={{ color: 'var(--color-neutral-500)' }}`
+- [x] T007 [P] [US2] Aggiungere rendering badge in `ServiceCard` — se `service.tag` è definito, mostrare `<Badge variant={service.tagVariant ?? 'neutral'}>` in cima alla card, sopra il nome; la card "Consulenza Gratuita" deve mostrare badge variant `accent` con testo "Gratuita"
+- [x] T008 [US2] Aggiungere bullets opzionali in `ServiceCard` e aggiornare `src/data/services.ts` — se `service.bullets` è definito, mostrare lista `<ul>` con punti chiave (max 3 visibili); aggiornare `SERVICES[2]` (Visite di Controllo) con bullets: "Aggiornamento piano alimentare", "Monitoraggio progressi", "Percorsi a pacchetto 3 o 6 mesi"
 
 **Checkpoint**: Le 4 card mostrano: modalità (icona + testo), badge "Gratuita" sulla consulenza,
 lista punti per Visite di Controllo. Un utente esterno distingue i servizi senza spiegazioni.
@@ -58,8 +58,8 @@ lista punti per Visite di Controllo. Un utente esterno distingue i servizi senza
 **Independent Test**: Scorrere la sezione senza cliccare nessuna card. In fondo si devono vedere:
 (1) il banner "Servizi Inclusi" con la newsletter, (2) il blocco "Non sai da dove iniziare?" con CTA.
 
-- [ ] T009 [US3] Aggiungere `IncludedServicesBanner` in `src/components/sections/ServicesSection.tsx` — sezione sotto la griglia con `Card variant="warm" shadow="sm"`; titolo "🎁 Servizi Inclusi"; voce newsletter "Nutrizione Pratica" con descrizione "Ogni mese riceverai un ricettario sano e semplice e una guida nutrizionale pratica"; badge "Gratuita" variant `primary`; usa `INCLUDED_SERVICES` da `@/data/services`
-- [ ] T010 [US3] Aggiungere `ServicesCtaBanner` in `src/components/sections/ServicesSection.tsx` — blocco finale con sfondo `var(--color-primary-50)`, testo heading-4 "Non sai da dove iniziare?", body-md "Prenota una consulenza gratuita e iniziamo insieme il tuo percorso", `<Button variant="primary" size="lg">Prenota consulenza gratuita</Button>` che chiama `openCalendly(SERVICES_CTA_URL)`, `rounded-2xl p-8 text-center`
+- [x] T009 [US3] Aggiungere `IncludedServicesBanner` in `src/components/sections/ServicesSection.tsx` — sezione sotto la griglia con `Card variant="warm" shadow="sm"`; titolo "🎁 Servizi Inclusi"; voce newsletter "Nutrizione Pratica" con descrizione "Ogni mese riceverai un ricettario sano e semplice e una guida nutrizionale pratica"; badge "Gratuita" variant `primary`; usa `INCLUDED_SERVICES` da `@/data/services`
+- [x] T010 [US3] Aggiungere `ServicesCtaBanner` in `src/components/sections/ServicesSection.tsx` — blocco finale con sfondo `var(--color-primary-50)`, testo heading-4 "Non sai da dove iniziare?", body-md "Prenota una consulenza gratuita e iniziamo insieme il tuo percorso", `<Button variant="primary" size="lg">Prenota consulenza gratuita</Button>` che chiama `openCalendly(SERVICES_CTA_URL)`, `rounded-2xl p-8 text-center`
 
 **Checkpoint**: Scorrere la sezione fino in fondo. Visibili: banner newsletter warm, blocco CTA verde.
 CTA finale apre lo stesso popup Calendly della consulenza gratuita.
@@ -70,9 +70,9 @@ CTA finale apre lo stesso popup Calendly della consulenza gratuita.
 
 **Purpose**: Qualità trasversale, test aggiornati, documentazione.
 
-- [ ] T011 [P] Verificare WCAG AA con axe — avviare `npm run dev`, aprire `localhost:3000`, eseguire `npx playwright test`; correggere eventuali violazioni di contrasto o accessibilità nella sezione servizi (cfr. fix già applicato in 001 per contrasto label)
-- [ ] T012 [P] Aggiornare `tests/smoke.spec.ts` — aggiungere test: (1) la sezione servizi è visibile (`page.getByText('I Percorsi').toBeVisible()`); (2) sono presenti 4 card con testo "Prenota ora"; (3) il banner "Non sai da dove iniziare?" è visibile in fondo
-- [ ] T013 [P] Aggiornare `CLAUDE.md` — aggiungere alla struttura `src/`: `src/data/services.ts` (array servizi, tipi, URL Calendly) e `src/components/sections/ServicesSection.tsx` (sezione servizi homepage)
+- [x] T011 [P] Verificare WCAG AA con axe — avviare `npm run dev`, aprire `localhost:3000`, eseguire `npx playwright test`; correggere eventuali violazioni di contrasto o accessibilità nella sezione servizi (cfr. fix già applicato in 001 per contrasto label)
+- [x] T012 [P] Aggiornare `tests/smoke.spec.ts` — aggiungere test: (1) la sezione servizi è visibile (`page.getByText('I Percorsi').toBeVisible()`); (2) sono presenti 4 card con testo "Prenota ora"; (3) il banner "Non sai da dove iniziare?" è visibile in fondo
+- [x] T013 [P] Aggiornare `CLAUDE.md` — aggiungere alla struttura `src/`: `src/data/services.ts` (array servizi, tipi, URL Calendly) e `src/components/sections/ServicesSection.tsx` (sezione servizi homepage)
 - [ ] T014 [P] Commit e push branch `002-sezione-servizi` — verificare che `npx tsc --noEmit` e `npm run build` passino; push su GitHub per deploy preview Vercel
 
 ---

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import { fontDisplay, fontBody } from '@/lib/fonts'
 import './globals.css'
 
@@ -19,7 +20,19 @@ export default function RootLayout({
       lang="it"
       className={`${fontDisplay.variable} ${fontBody.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://assets.calendly.com/assets/external/widget.css"
+        />
+      </head>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <Script
+          src="https://assets.calendly.com/assets/external/widget.js"
+          strategy="lazyOnload"
+        />
+      </body>
     </html>
   )
 }

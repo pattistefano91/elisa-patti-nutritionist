@@ -30,3 +30,21 @@ test.describe('Smoke — Home page', () => {
     expect(results.violations).toEqual([])
   })
 })
+
+test.describe('Smoke — Sezione Servizi', () => {
+  test('sezione servizi visibile con titolo "I Percorsi"', async ({ page }) => {
+    await page.goto('/')
+    await expect(page.getByText('I Percorsi')).toBeVisible()
+  })
+
+  test('4 card con bottone "Prenota ora"', async ({ page }) => {
+    await page.goto('/')
+    const prenotaButtons = page.getByRole('button', { name: /Prenota ora/i })
+    await expect(prenotaButtons).toHaveCount(4)
+  })
+
+  test('banner "Non sai da dove iniziare?" visibile in fondo', async ({ page }) => {
+    await page.goto('/')
+    await expect(page.getByText('Non sai da dove iniziare?')).toBeVisible()
+  })
+})

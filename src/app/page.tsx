@@ -1,8 +1,11 @@
 import { Button } from '@/components/ui/Button'
+import { Divider } from '@/components/ui/Divider'
 import { BlobHero } from '@/components/shapes/BlobHero'
+import { ServicesSection } from '@/components/sections/ServicesSection'
 
 export default function Home() {
   return (
+    <>
     <main
       className="relative min-h-screen overflow-hidden flex items-center"
       style={{ backgroundColor: 'var(--color-surface-page)' }}
@@ -60,5 +63,8 @@ export default function Home() {
         </div>
       </div>
     </main>
+    <Divider />
+    <ServicesSection />
+    </>
   )
 }
