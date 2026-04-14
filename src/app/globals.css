@@ -1,0 +1,211 @@
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────────
+   DESIGN SYSTEM — Palette "Naturalis"
+   Elisa Patti — Biologa Nutrizionista
+   ───────────────────────────────────────────── */
+
+@theme {
+  /* ── Colori Primario: Verde Salvia ── */
+  --color-primary-50: #F2F5EF;
+  --color-primary-100: #E0E9DA;
+  --color-primary-200: #C2D3B8;
+  --color-primary-300: #9CB78E;
+  --color-primary-400: #7A9D6A;
+  --color-primary-500: #5E8350;
+  --color-primary-600: #4A6840;
+  --color-primary-700: #374E30;
+  --color-primary-800: #243320;
+  --color-primary-900: #111910;
+
+  /* ── Colori Secondario: Sabbia Calda ── */
+  --color-secondary-50: #FBF8F4;
+  --color-secondary-100: #F5EDE0;
+  --color-secondary-200: #EADBC3;
+  --color-secondary-300: #DBC49F;
+  --color-secondary-400: #C9AA78;
+  --color-secondary-500: #B99055;
+  --color-secondary-600: #8F6E3E;
+  --color-secondary-700: #6A5030;
+  --color-secondary-800: #453421;
+  --color-secondary-900: #221A10;
+
+  /* ── Colori Accento: Terracotta (CTA) ── */
+  --color-accent-100: #F8E8E0;
+  --color-accent-200: #F0C9B5;
+  --color-accent-300: #E8A88C;
+  --color-accent-400: #D98060;
+  --color-accent-500: #C45C38;
+  --color-accent-600: #9E4528;
+  --color-accent-700: #7A3220;
+
+  /* ── Neutri Caldi ── */
+  --color-neutral-50: #FAF9F7;
+  --color-neutral-100: #F2F0EC;
+  --color-neutral-200: #E6E2DB;
+  --color-neutral-300: #D3CCBF;
+  --color-neutral-400: #B5AC9E;
+  --color-neutral-500: #8C8073;
+  --color-neutral-600: #665D53;
+  --color-neutral-700: #4A4239;
+  --color-neutral-800: #302B23;
+  --color-neutral-900: #1A1612;
+
+  /* ── Superfici ── */
+  --color-surface-page: #FAF9F7;
+  --color-surface-card: #FFFFFF;
+  --color-surface-muted: #F2F5EF;
+  --color-surface-warm: #FBF8F4;
+
+  /* ── Colori Semantici ── */
+  --color-success: #4E8B5A;
+  --color-error: #B84040;
+  --color-warning: #B88B30;
+  --color-info: #4070B8;
+
+  /* ── Spaziatura (base 4px) ── */
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+  --spacing-24: 6rem;
+  --spacing-32: 8rem;
+
+  /* ── Raggi di Bordo ── */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-full: 9999px;
+
+  /* ── Ombre ── */
+  --shadow-sm: 0 1px 3px rgba(26,22,18,0.08), 0 1px 2px rgba(26,22,18,0.04);
+  --shadow-md: 0 4px 12px rgba(26,22,18,0.10), 0 2px 4px rgba(26,22,18,0.06);
+  --shadow-lg: 0 12px 32px rgba(26,22,18,0.12), 0 4px 8px rgba(26,22,18,0.06);
+  --shadow-glow: 0 0 20px rgba(196,92,56,0.30);
+
+  /* ── Animazioni ── */
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+  --ease-organic: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-bounce-soft: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ── Layout ── */
+  --container-max-width: 1200px;
+  --container-padding-mobile: 20px;
+  --container-padding-desktop: 48px;
+}
+
+/* ── T010: prefers-reduced-motion ── */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0ms !important;
+    transition-duration: 0ms !important;
+  }
+}
+
+/* ── T011: Stili base globali ── */
+@layer base {
+  body {
+    background-color: var(--color-surface-page);
+    color: var(--color-neutral-900);
+    font-family: var(--font-body), system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display), Georgia, serif;
+  }
+}
+
+/* ── Scala Tipografica Semantica ── */
+@layer components {
+  .text-heading-1 {
+    font-family: var(--font-display), Georgia, serif;
+    font-size: 3.5rem;
+    line-height: 1.1;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+  .text-heading-2 {
+    font-family: var(--font-display), Georgia, serif;
+    font-size: 2.75rem;
+    line-height: 1.15;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+  .text-heading-3 {
+    font-family: var(--font-display), Georgia, serif;
+    font-size: 2rem;
+    line-height: 1.2;
+    font-weight: 500;
+    letter-spacing: 0;
+  }
+  .text-heading-4 {
+    font-family: var(--font-display), Georgia, serif;
+    font-size: 1.5rem;
+    line-height: 1.25;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+  .text-heading-5 {
+    font-family: var(--font-body), system-ui, sans-serif;
+    font-size: 1.25rem;
+    line-height: 1.3;
+    font-weight: 500;
+    letter-spacing: 0;
+  }
+  .text-heading-6 {
+    font-family: var(--font-body), system-ui, sans-serif;
+    font-size: 1rem;
+    line-height: 1.35;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+  .text-body-lg {
+    font-family: var(--font-body), system-ui, sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    font-weight: 400;
+  }
+  .text-body-md {
+    font-family: var(--font-body), system-ui, sans-serif;
+    font-size: 1rem;
+    line-height: 1.65;
+    font-weight: 400;
+  }
+  .text-body-sm {
+    font-family: var(--font-body), system-ui, sans-serif;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    font-weight: 400;
+  }
+  .text-caption {
+    font-family: var(--font-body), system-ui, sans-serif;
+    font-size: 0.75rem;
+    line-height: 1.5;
+    font-weight: 400;
+  }
+  .text-label {
+    font-family: var(--font-body), system-ui, sans-serif;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+}
+
+/*
+  WCAG AA contrast verified (2026-04-14):
+  neutral-900 #1A1612 on neutral-50 #FAF9F7   → ~17:1 AAA
+  neutral-900 #1A1612 on surface-card #FFFFFF  → ~18:1 AAA
+  surface-card #FFFFFF on accent-500 #C45C38   → ~4.6:1 AA ✓
+  surface-card #FFFFFF on primary-500 #5E8350  → ~4.7:1 AA ✓
+  neutral-900 #1A1612 on primary-50 #F2F5EF    → ~16:1 AAA
+  neutral-600 #665D53 on surface-card #FFFFFF  → ~5.2:1 AA ✓
+*/

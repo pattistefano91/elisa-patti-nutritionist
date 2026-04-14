@@ -28,12 +28,12 @@ e validazione indipendente di ciascuna storia.
 **Purpose**: Creare la struttura base del progetto Next.js con tutte le dipendenze.
 Nessuna user story può iniziare prima che questa fase sia completa.
 
-- [ ] T001 Inizializzare progetto Next.js 15 nella root del repo: `npx create-next-app@latest . --typescript --tailwind --app --src-dir --import-alias "@/*"` (sovrascrive solo i file generati, non specs/ né .specify/)
-- [ ] T002 [P] Installare dipendenze animazioni: `npm install framer-motion` — aggiorna `package.json`
-- [ ] T003 [P] Installare dipendenze UI primitives: `npm install @radix-ui/react-slot @radix-ui/react-avatar` — aggiorna `package.json`
-- [ ] T004 [P] Installare utility CSS: `npm install clsx tailwind-merge` — aggiorna `package.json`
-- [ ] T005 [P] Configurare TypeScript strict mode in `tsconfig.json`: impostare `"strict": true`, `"noUncheckedIndexedAccess": true`
-- [ ] T006 Verificare struttura directory creata: `src/app/`, `src/components/`, `src/lib/` esistenti; creare `src/components/ui/` e `src/components/shapes/` se assenti
+- [x] T001 Inizializzare progetto Next.js 15 nella root del repo: `npx create-next-app@latest . --typescript --tailwind --app --src-dir --import-alias "@/*"` (sovrascrive solo i file generati, non specs/ né .specify/)
+- [x] T002 [P] Installare dipendenze animazioni: `npm install framer-motion` — aggiorna `package.json`
+- [x] T003 [P] Installare dipendenze UI primitives: `npm install @radix-ui/react-slot @radix-ui/react-avatar` — aggiorna `package.json`
+- [x] T004 [P] Installare utility CSS: `npm install clsx tailwind-merge` — aggiorna `package.json`
+- [x] T005 [P] Configurare TypeScript strict mode in `tsconfig.json`: impostare `"strict": true`, `"noUncheckedIndexedAccess": true`
+- [x] T006 Verificare struttura directory creata: `src/app/`, `src/components/`, `src/lib/` esistenti; creare `src/components/ui/` e `src/components/shapes/` se assenti
 
 **Checkpoint**: `npm run dev` avvia senza errori su `localhost:3000`. Build pulita con `npm run build`.
 
@@ -46,11 +46,11 @@ Nessuna user story può produrre output visivo coerente prima di questa fase.
 
 **⚠️ CRITICO**: Nessun lavoro sulle user story prima del completamento di questa fase.
 
-- [ ] T007 Creare `src/lib/fonts.ts` — configurare `next/font/google` con Cormorant Garamond (subsets: `['latin']`, weight: `['300','500','600']`, display: `'swap'`) e DM Sans (subsets: `['latin']`, weight: `['300','400','500','700']`, variable: `'--font-body'`, display: `'swap'`); esportare `fontDisplay` e `fontBody`
-- [ ] T008 Aggiornare `src/app/layout.tsx` — importare `fontDisplay` e `fontBody` da `@/lib/fonts`; aggiungere variabili font alla classe `<html>`; impostare `lang="it"`; importare `./globals.css`; aggiungere metadata base (`title`, `description`, `lang`)
-- [ ] T009 Sostituire il contenuto di `src/app/globals.css` con: `@import "tailwindcss"`, poi blocco `@theme { }` con tutti i token da `specs/001-design-system/contracts/design-tokens.md` — colori (primary, secondary, accent, neutral, surface, semantic), tipografia (font-family, heading-1…6, body-lg/md/sm, caption, label come `@layer components`), spaziatura (spacing-1…32), raggi di bordo (radius-sm…full), ombre (shadow-sm/md/lg/glow), animazioni (duration-fast/normal/slow, ease-organic, ease-bounce-soft)
-- [ ] T010 Aggiungere in `src/app/globals.css` — regola `@media (prefers-reduced-motion: reduce)` che sovrascrive tutti i token `--duration-*` a `0ms` e `--ease-*` a `linear`
-- [ ] T011 Aggiungere in `src/app/globals.css` — stili base globali: `body { background: var(--color-surface-page); color: var(--color-neutral-900); font-family: var(--font-body); }`, `h1,h2,h3,h4 { font-family: var(--font-display); }`
+- [x] T007 Creare `src/lib/fonts.ts` — configurare `next/font/google` con Cormorant Garamond (subsets: `['latin']`, weight: `['300','500','600']`, display: `'swap'`) e DM Sans (subsets: `['latin']`, weight: `['300','400','500','700']`, variable: `'--font-body'`, display: `'swap'`); esportare `fontDisplay` e `fontBody`
+- [x] T008 Aggiornare `src/app/layout.tsx` — importare `fontDisplay` e `fontBody` da `@/lib/fonts`; aggiungere variabili font alla classe `<html>`; impostare `lang="it"`; importare `./globals.css`; aggiungere metadata base (`title`, `description`, `lang`)
+- [x] T009 Sostituire il contenuto di `src/app/globals.css` con: `@import "tailwindcss"`, poi blocco `@theme { }` con tutti i token da `specs/001-design-system/contracts/design-tokens.md` — colori (primary, secondary, accent, neutral, surface, semantic), tipografia (font-family, heading-1…6, body-lg/md/sm, caption, label come `@layer components`), spaziatura (spacing-1…32), raggi di bordo (radius-sm…full), ombre (shadow-sm/md/lg/glow), animazioni (duration-fast/normal/slow, ease-organic, ease-bounce-soft)
+- [x] T010 Aggiungere in `src/app/globals.css` — regola `@media (prefers-reduced-motion: reduce)` che sovrascrive tutti i token `--duration-*` a `0ms` e `--ease-*` a `linear`
+- [x] T011 Aggiungere in `src/app/globals.css` — stili base globali: `body { background: var(--color-surface-page); color: var(--color-neutral-900); font-family: var(--font-body); }`, `h1,h2,h3,h4 { font-family: var(--font-display); }`
 
 **Checkpoint**: `npm run build` senza errori TypeScript. Font Cormorant Garamond e DM Sans visibili nel DOM ispezionando `<html>` in DevTools. Variabile `--color-primary-500` risolvibile in DevTools CSS.
 
@@ -65,12 +65,12 @@ entro 5 secondi. Palette organica, forme morbide e tipografia elegante presenti 
 che la pagina mostri: titolo in Cormorant Garamond, almeno un blob organico, sfondo caldo
 `#FAF9F7`, CTA in terracotta `#C45C38`. Screenshot da mostrare a 5 persone del target.
 
-- [ ] T012 [P] [US1] Creare `src/components/shapes/BlobHero.tsx` — componente React che renderizza SVG inline con path `M80,10 C120,0 190,40 190,90 C190,150 140,195 90,190 C40,185 5,150 10,90 C15,30 40,20 80,10Z`, viewBox `"0 0 200 200"`, prop `className` passata all'elemento `<svg>`, `aria-hidden="true"`
-- [ ] T013 [P] [US1] Creare `src/components/shapes/BlobFrame.tsx` — componente React SVG con path `M70,5 C110,-5 185,30 190,80 C195,130 160,190 100,190 C40,190 0,155 5,90 C10,25 30,15 70,5Z`, viewBox `"0 0 200 200"`, prop `className`, `aria-hidden="true"`
-- [ ] T014 [P] [US1] Creare `src/components/shapes/BlobSection.tsx` — componente React SVG con path `M60,15 C100,5 180,35 185,85 C190,135 150,185 95,185 C40,185 8,145 12,85 C16,25 20,25 60,15Z`, viewBox `"0 0 200 200"`, prop `className`, `aria-hidden="true"`
-- [ ] T015 [US1] Creare `src/components/ui/Button.tsx` — componente con props `variant` (`primary` | `secondary` | `ghost`), `size` (`sm` | `md` | `lg`), `loading` (`boolean`), `disabled` (`boolean`); usare `clsx` + `tailwind-merge` per classi condizionali; variant primary: `bg-accent-500 hover:bg-accent-600 text-white shadow-glow-hover rounded-full`; variant secondary: `bg-primary-50 text-primary-700 border border-primary-200 hover:bg-primary-100 rounded-full`; variant ghost: `text-primary-600 hover:bg-primary-50 rounded-full`; stato loading mostra spinner inline e disabilita click
-- [ ] T016 [US1] Aggiornare `src/app/page.tsx` — creare hero section minimale che dimostri l'identità visiva: sfondo `bg-surface-page`, heading-1 in Cormorant Garamond con testo "Cura il tuo benessere con la nutrizione", `BlobHero` posizionato in assoluto come elemento decorativo, `Button` variant primary con testo "Prenota consulenza gratuita", colori da CSS token
-- [ ] T017 [US1] Verificare manualmente contrasto WCAG AA per le coppie critiche: `accent-500` (#C45C38) su `white` deve essere ≥ 4.5:1; `primary-500` (#5E8350) su `white` deve essere ≥ 4.5:1; documentare i ratio verificati come commento in `src/app/globals.css`
+- [x] T012 [P] [US1] Creare `src/components/shapes/BlobHero.tsx` — componente React che renderizza SVG inline con path `M80,10 C120,0 190,40 190,90 C190,150 140,195 90,190 C40,185 5,150 10,90 C15,30 40,20 80,10Z`, viewBox `"0 0 200 200"`, prop `className` passata all'elemento `<svg>`, `aria-hidden="true"`
+- [x] T013 [P] [US1] Creare `src/components/shapes/BlobFrame.tsx` — componente React SVG con path `M70,5 C110,-5 185,30 190,80 C195,130 160,190 100,190 C40,190 0,155 5,90 C10,25 30,15 70,5Z`, viewBox `"0 0 200 200"`, prop `className`, `aria-hidden="true"`
+- [x] T014 [P] [US1] Creare `src/components/shapes/BlobSection.tsx` — componente React SVG con path `M60,15 C100,5 180,35 185,85 C190,135 150,185 95,185 C40,185 8,145 12,85 C16,25 20,25 60,15Z`, viewBox `"0 0 200 200"`, prop `className`, `aria-hidden="true"`
+- [x] T015 [US1] Creare `src/components/ui/Button.tsx` — componente con props `variant` (`primary` | `secondary` | `ghost`), `size` (`sm` | `md` | `lg`), `loading` (`boolean`), `disabled` (`boolean`); usare `clsx` + `tailwind-merge` per classi condizionali; variant primary: `bg-accent-500 hover:bg-accent-600 text-white shadow-glow-hover rounded-full`; variant secondary: `bg-primary-50 text-primary-700 border border-primary-200 hover:bg-primary-100 rounded-full`; variant ghost: `text-primary-600 hover:bg-primary-50 rounded-full`; stato loading mostra spinner inline e disabilita click
+- [x] T016 [US1] Aggiornare `src/app/page.tsx` — creare hero section minimale che dimostri l'identità visiva: sfondo `bg-surface-page`, heading-1 in Cormorant Garamond con testo "Cura il tuo benessere con la nutrizione", `BlobHero` posizionato in assoluto come elemento decorativo, `Button` variant primary con testo "Prenota consulenza gratuita", colori da CSS token
+- [x] T017 [US1] Verificare manualmente contrasto WCAG AA per le coppie critiche: `accent-500` (#C45C38) su `white` deve essere ≥ 4.5:1; `primary-500` (#5E8350) su `white` deve essere ≥ 4.5:1; documentare i ratio verificati come commento in `src/app/globals.css`
 
 **Checkpoint**: Aprire `localhost:3000` su 375px. Visibile: titolo serif elegante, blob organico, sfondo caldo, pulsante terracotta arrotondato. Nessuna forma squadrata. User Story 1 è funzionalmente completa e indipendente.
 
