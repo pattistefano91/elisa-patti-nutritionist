@@ -126,7 +126,7 @@ senza richiedere cambio di colori o forme principali.
 - [x] T033 [P] Aggiungere `next-sitemap` al progetto: `npm install next-sitemap`; creare `next-sitemap.config.js`; escludere `/brand-review` dalla sitemap pubblica
 - [x] T034 [P] Verificare con DevTools che `font-display: swap` sia applicato e che FOUT sia ≤ 100ms su connessione 3G simulata (Network throttling in Chrome DevTools)
 - [x] T035 Creare `tests/smoke.spec.ts` con Playwright + axe: (1) installare `npm install --save-dev @axe-core/playwright`; (2) verificare font Cormorant Garamond caricato (`document.fonts.check('500 16px Cormorant Garamond')`); (3) verificare almeno un elemento con `data-testid="cta-primary"` visibile; (4) eseguire `checkA11y` di axe sull'intera pagina e assertire zero violazioni WCAG AA; (5) verificare `lang` dell'`<html>` è `"it"`
-- [ ] T036 Rimuovere o nascondere `src/app/brand-review/page.tsx` dopo approvazione (spostare in route non pubblica o eliminare)
+- [x] T036 Rimuovere o nascondere `src/app/brand-review/page.tsx` dopo approvazione (spostare in route non pubblica o eliminare)
 - [x] T037 [P] Aggiornare `CLAUDE.md` con la struttura `src/` reale post-implementazione (sostituire la struttura di placeholder con quella effettiva)
 
 ---
