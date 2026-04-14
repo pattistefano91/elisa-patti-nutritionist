@@ -94,7 +94,10 @@ alle forme.
   usa token semantici (es. `color-primary`, non il valore hex diretto), rendendo il rebranding
   un'operazione limitata a pochi token.
 - Cosa succede se un browser non supporta una funzionalità CSS avanzata usata per le forme
-  organiche? → Ogni effetto avanzato ha un fallback accettabile per browser con supporto parziale.
+  organiche? → Il target minimo è: ultimi 2 major versions di Chrome, Firefox, Edge + Safari 16+
+  (copertura ~95% utenti italiani). Ogni effetto non supportato da browser fuori target DEVE
+  degradare silenziosamente a un fallback visivamente accettabile (es. border-radius semplice
+  al posto di clip-path complesso).
 - Cosa succede se le immagini della dottoressa non hanno lo stile fotografico previsto dal design
   system? → Il design system definisce linee guida fotografiche (mood, trattamento colore) oltre
   ai soli componenti tecnici.
@@ -114,8 +117,10 @@ alle forme.
 - **FR-003**: Il design system DEVE definire tokens di spaziatura su scala geometrica (4px base:
   4, 8, 12, 16, 24, 32, 48, 64, 96, 128px) usati per padding, margin e gap in modo coerente.
 - **FR-004**: Il design system DEVE definire tokens per forme organiche: raggi di bordo da morbido
-  a completo (4px, 8px, 16px, 24px, 32px, 9999px), con almeno una forma "blob" asimmetrica per
-  elementi decorativi (es. avatar, immagini hero, sfondi sezione).
+  a completo (4px, 8px, 16px, 24px, 32px, 9999px), con esattamente 3 blob SVG/CSS distinti:
+  `blob-hero` (forma grande e drammatica per il hero della homepage), `blob-frame` (forma per
+  incorniciare foto profilo e immagini cibo), `blob-section` (forma sottile per divisori e sfondi
+  sezione). Ogni blob DEVE essere riutilizzabile con trasformazioni CSS (scala, rotazione, colore).
 - **FR-005**: Il design system DEVE definire un set di ombre (shadows) morbide e coerenti con
   l'estetica organica: nessuna ombra netta o dura; almeno 3 livelli (sm, md, lg) più un livello
   "glow" per effetti di hover su CTA.
@@ -171,8 +176,9 @@ alle forme.
   risoluzione prima dell'implementazione della homepage (feature 002).
 - Si assume che il logo della dottoressa, se esistente, venga fornito in formato SVG o PNG
   ad alta risoluzione; se assente, la firma tipografica sarà il logo del sito.
-- Si assume che la palette di riferimento primaria sia derivata dall'analisi del profilo
-  Instagram (nutrizionista.elisapatti) e dai siti di ispirazione indicati.
+- La palette cromatica DEVE essere proposta dallo sviluppatore tramite analisi del profilo
+  Instagram (nutrizionista.elisapatti) e dei siti di riferimento indicati (fabiolapanfili.it,
+  dimperionutrizionista.com), e approvata dalla Dott.ssa Patti prima dell'implementazione.
 - Si assume che il design system sia implementato come CSS custom properties (variabili CSS)
   integrate con il framework di styling scelto dalla constitution (Tailwind CSS v4).
 - Si assume che la documentazione del design system sia un file Markdown nella directory del
@@ -180,3 +186,19 @@ alle forme.
 - Si assume che le forme "blob" decorative siano generate tramite CSS o SVG inline, non
   tramite immagini rasterizzate, per garantire scalabilità e performance.
 - Si assume che il sistema supporti una dark mode in futuro, ma questa non è in scope per v1.
+- Il sito è esclusivamente in lingua italiana (`lang="it"`). Nessun supporto multilingue
+  previsto. I font DEVONO includere il charset Latin con supporto completo ai caratteri
+  accentati italiani (à, è, é, ì, ò, ù). Nessun `hreflang` alternativo necessario.
+- I font DEVONO essere self-hosted sul dominio del sito (serviti da Vercel): nessuna
+  dipendenza da Google Fonts CDN o altri servizi di terze parti, per conformità GDPR e
+  ottimizzazione LCP (`font-display: optional`).
+
+## Clarifications
+
+### Session 2026-04-14
+
+- Q: Come devono essere caricati i font del sito? → A: Self-hosted su Vercel — font scaricati, ottimizzati e serviti dal proprio dominio.
+- Q: Da dove partiamo per definire i colori principali? → A: Claude propone palette da analisi Instagram (nutrizionista.elisapatti) + siti di riferimento (fabiolapanfili.it), da approvare con la Dott.ssa Patti.
+- Q: Qual è il browser support minimo da garantire? → A: Ultimi 2 major versions di Chrome, Firefox, Edge + Safari 16+ (~95% copertura utenti italiani); fallback silenzioso per browser fuori target.
+- Q: Quante varianti di blob shape definire nel design system? → A: 3 blob distinti: blob-hero (hero homepage), blob-frame (foto/avatar), blob-section (divisori e sfondi sezione).
+- Q: In quale lingua sarà il sito? → A: Solo italiano (lang="it"); la Dott.ssa opera esclusivamente in Italia. Font con charset Latin completo per caratteri accentati italiani.
