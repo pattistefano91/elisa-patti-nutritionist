@@ -92,9 +92,10 @@ in meno di 30 minuti dall'apertura del file.
 - [ ] T022 [P] [US2] Creare `src/components/ui/Avatar.tsx` — componente con props `src`, `alt`, `size` (`sm` | `md` | `lg`); usa `@radix-ui/react-avatar` per fallback initials; forma: `rounded-full` (CSS) con effetto organico opzionale via `BlobFrame` come mask; fallback: initials su sfondo `primary-100`
 - [ ] T023 [P] [US2] Creare `src/components/ui/Divider.tsx` — linea divisoria con props `orientation` (`horizontal` | `vertical`), `variant` (`solid` | `dashed` | `decorative`); decorative usa gradiente da `secondary-200` a `transparent`
 - [ ] T024 [P] [US2] Creare `src/components/ui/Skeleton.tsx` — placeholder loading con props `width`, `height`, `variant` (`line` | `circle` | `card`); animazione pulse via Framer Motion; rispetta `prefers-reduced-motion` (no animazione se ridotta)
-- [ ] T025 [US2] Creare `src/components/ui/index.ts` — barrel export di tutti i componenti: `Button`, `Card`, `Input`, `Textarea`, `Badge`, `Avatar`, `Divider`, `Skeleton`
-- [ ] T026 [US2] Creare `src/components/shapes/index.ts` — barrel export: `BlobHero`, `BlobFrame`, `BlobSection`
-- [ ] T027 [US2] Aggiornare `specs/001-design-system/quickstart.md` — sostituire i percorsi di import con i percorsi reali verificati (`@/components/ui`, `@/components/shapes`); aggiungere esempio completo di Card servizio costruita con i componenti
+- [ ] T025 [US2] Creare `src/components/ui/Container.tsx` — wrapper layout con `max-width: var(--container-max-width)` (1200px), `padding-inline: var(--container-padding-mobile)` su mobile e `var(--container-padding-desktop)` su desktop (media query `md:`), `margin-inline: auto`; props: `as` (tag HTML, default `div`), `className`, `children`; questo componente è prerequisito per tutte le feature di layout (002+)
+- [ ] T026 [US2] Creare `src/components/ui/index.ts` — barrel export di tutti i componenti: `Button`, `Card`, `Input`, `Textarea`, `Badge`, `Avatar`, `Divider`, `Skeleton`, `Container`
+- [ ] T027 [US2] Creare `src/components/shapes/index.ts` — barrel export: `BlobHero`, `BlobFrame`, `BlobSection`
+- [ ] T028 [US2] Aggiornare `specs/001-design-system/quickstart.md` — sostituire i percorsi di import con i percorsi reali verificati (`@/components/ui`, `@/components/shapes`); aggiungere esempio completo di Card servizio costruita con i componenti; aggiungere esempio di Container wrapping una sezione
 
 **Checkpoint**: Costruire una `Card` con `Badge`, `Button` e un testo usando solo import da `@/components/ui` senza nessun valore hex o font inline. Tempo ≤ 30 minuti. User Story 2 completa e indipendente.
 
@@ -109,9 +110,10 @@ senza richiedere modifiche radicali.
 con la cliente (via Vercel preview URL o screenshot). La cliente esprime approvazione
 senza richiedere cambio di colori o forme principali.
 
-- [ ] T028 [US3] Creare `src/app/brand-review/page.tsx` — pagina di preview non indicizzata (`export const metadata = { robots: 'noindex' }`) che mostra: l'intera palette cromatica come swatches con nome token e hex, la scala tipografica con testi di esempio in italiano, i 3 blob nelle loro dimensioni e colori tipici, tutti i componenti UI in tutti i loro stati e varianti, il Button CTA primario in contesto realistico
-- [ ] T029 [US3] Aggiungere a `src/app/brand-review/page.tsx` — sezione "Come appare above the fold" con un mockup del hero: blob-hero decorativo, heading-1 "Cura il tuo benessere con la nutrizione", sottotitolo body-lg, Button primary "Prenota consulenza gratuita", sfondo `surface-page`
-- [ ] T030 [US3] Fare deploy su Vercel (preview branch `001-design-system`) e condividere URL `[preview].vercel.app/brand-review` con la Dott.ssa Patti per approvazione
+- [ ] T029 [US3] Creare `docs/photography-guidelines.md` — linee guida fotografiche del design system: (1) mood fotografico atteso (luce naturale, sfondi neutri caldi, ambientazioni domestiche/naturali — no studi clinici bianchi); (2) trattamento colore (toni caldi, saturazione naturale, no filtri freddi o desaturati); (3) ratio immagini per contesto (hero: 16:9 o 4:3 landscape; avatar/profilo: 1:1; card servizio: 3:2); (4) esempi visivi do/don't descritti testualmente; (5) indicazioni per la Dott.ssa su come selezionare le foto da fornire
+- [ ] T030 [US3] Creare `src/app/brand-review/page.tsx` — pagina di preview non indicizzata (`export const metadata = { robots: 'noindex' }`) che mostra: l'intera palette cromatica come swatches con nome token e hex, la scala tipografica con testi di esempio in italiano, i 3 blob nelle loro dimensioni e colori tipici, tutti i componenti UI in tutti i loro stati e varianti, il Button CTA primario in contesto realistico
+- [ ] T031 [US3] Aggiungere a `src/app/brand-review/page.tsx` — sezione "Come appare above the fold" con un mockup del hero: blob-hero decorativo, heading-1 "Cura il tuo benessere con la nutrizione", sottotitolo body-lg, Button primary "Prenota consulenza gratuita", sfondo `surface-page`
+- [ ] T032 [US3] Fare deploy su Vercel (preview branch `001-design-system`) e condividere URL `[preview].vercel.app/brand-review` con la Dott.ssa Patti per approvazione
 
 **Checkpoint**: URL di preview condiviso. La Dott.ssa Patti approva la palette ("i colori mi rappresentano") e le forme ("le curve sono giuste"). Nessuna richiesta di cambio radicale. Se richieste modifiche: aggiornare i token in T009 e rigenerare il preview. User Story 3 completa quando approvazione ricevuta.
 
@@ -121,11 +123,11 @@ senza richiedere cambio di colori o forme principali.
 
 **Purpose**: Qualità, accessibilità, pulizia post-approvazione.
 
-- [ ] T031 [P] Aggiungere `next-sitemap` al progetto: `npm install next-sitemap`; creare `next-sitemap.config.js`; escludere `/brand-review` dalla sitemap pubblica
-- [ ] T032 [P] Verificare con DevTools che `font-display: swap` sia applicato e che FOUT sia ≤ 100ms su connessione 3G simulata (Network throttling in Chrome DevTools)
-- [ ] T033 Creare `tests/smoke.spec.ts` con Playwright: test che verifica (1) font Cormorant Garamond caricato (`document.fonts.check('500 16px Cormorant Garamond')`), (2) almeno un elemento con classe `bg-accent-500` visibile, (3) nessun errore in console, (4) `lang` dell'`<html>` è `"it"`
-- [ ] T034 Rimuovere o nascondere `src/app/brand-review/page.tsx` dopo approvazione (spostare in route non pubblica o eliminare)
-- [ ] T035 [P] Aggiornare `CLAUDE.md` con la struttura `src/` reale post-implementazione (sostituire la struttura di placeholder con quella effettiva)
+- [ ] T033 [P] Aggiungere `next-sitemap` al progetto: `npm install next-sitemap`; creare `next-sitemap.config.js`; escludere `/brand-review` dalla sitemap pubblica
+- [ ] T034 [P] Verificare con DevTools che `font-display: swap` sia applicato e che FOUT sia ≤ 100ms su connessione 3G simulata (Network throttling in Chrome DevTools)
+- [ ] T035 Creare `tests/smoke.spec.ts` con Playwright + axe: (1) installare `npm install --save-dev @axe-core/playwright`; (2) verificare font Cormorant Garamond caricato (`document.fonts.check('500 16px Cormorant Garamond')`); (3) verificare almeno un elemento con `data-testid="cta-primary"` visibile; (4) eseguire `checkA11y` di axe sull'intera pagina e assertire zero violazioni WCAG AA; (5) verificare `lang` dell'`<html>` è `"it"`
+- [ ] T036 Rimuovere o nascondere `src/app/brand-review/page.tsx` dopo approvazione (spostare in route non pubblica o eliminare)
+- [ ] T037 [P] Aggiornare `CLAUDE.md` con la struttura `src/` reale post-implementazione (sostituire la struttura di placeholder con quella effettiva)
 
 ---
 
@@ -143,16 +145,16 @@ senza richiedere cambio di colori o forme principali.
 ### Dipendenze interne alle User Story
 
 - **US1**: T012, T013, T014 [P] → T015 → T016 → T017
-- **US2**: T018–T024 [P] → T025, T026 → T027
-- **US3**: T028 → T029 → T030; richiede US1 e US2 complete
+- **US2**: T018–T024 [P] → T025 → T026, T027 → T028
+- **US3**: T029 → T030 → T031 → T032; richiede US1 e US2 complete
 
 ### Opportunità di parallelismo
 
 - T002, T003, T004, T005 (Setup) — tutti in parallelo
-- T007, (T008 implicit) — sequenziale (fonts.ts prima di layout.tsx)
+- T007 → T008 — sequenziale (fonts.ts prima di layout.tsx)
 - T012, T013, T014 (Blob SVG) — tutti in parallelo
 - T018, T019, T020, T021, T022, T023, T024 (Componenti UI) — tutti in parallelo
-- T031, T032, T035 (Polish) — in parallelo
+- T033, T034, T037 (Polish) — in parallelo
 
 ---
 
@@ -179,5 +181,7 @@ senza richiedere cambio di colori o forme principali.
 - `[P]` = file diversi, nessuna dipendenza — eseguibili in parallelo
 - Ogni fase è testabile indipendentemente prima di passare alla successiva
 - Non avanzare oltre Phase 2 senza `npm run build` pulito
-- La palette è in stato **PROPOSED** fino all'approvazione US3 (T030)
+- La palette è in stato **PROPOSED** fino all'approvazione US3 (T032)
 - Non fare merge su `main` prima dell'approvazione palette
+- T025 (Container) è prerequisito silenzioso per tutte le feature 002+ — non saltarlo
+- Le linee guida fotografiche (T029) vanno condivise con la Dott.ssa insieme alla brand review

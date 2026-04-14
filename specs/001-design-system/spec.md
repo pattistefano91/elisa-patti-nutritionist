@@ -111,9 +111,11 @@ alle forme.
   e colori di sfondo. Ogni colore DEVE avere un nome semantico (es. `color-primary-500`) e
   un valore hex/oklch documentato.
 - **FR-002**: Il design system DEVE definire una scala tipografica completa: famiglia di font
-  per titoli (serif elegante) e per testo corrente (sans-serif leggibile), scale di dimensioni
-  (da xs a 5xl), pesi, altezze di riga e spaziature tra lettere per ogni livello semantico
-  (heading-1 … heading-6, body-lg, body-md, body-sm, caption, label).
+  per titoli (serif elegante, `--font-display`) e per testo corrente (sans-serif leggibile,
+  `--font-body`), con livelli semantici nominati: `heading-1`, `heading-2`, `heading-3`,
+  `heading-4`, `heading-5`, `heading-6`, `body-lg`, `body-md`, `body-sm`, `caption`, `label`.
+  Per ogni livello DEVONO essere definiti: font-family, font-size (rem), font-weight,
+  line-height e letter-spacing.
 - **FR-003**: Il design system DEVE definire tokens di spaziatura su scala geometrica (4px base:
   4, 8, 12, 16, 24, 32, 48, 64, 96, 128px) usati per padding, margin e gap in modo coerente.
 - **FR-004**: Il design system DEVE definire tokens per forme organiche: raggi di bordo da morbido

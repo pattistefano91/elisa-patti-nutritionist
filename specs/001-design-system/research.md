@@ -41,7 +41,15 @@ necessario — funzionalità built-in di Next.js.
 - **DM Sans** — sans-serif geometrico-umanista. Leggibilissimo a body size, carattere
   variabile disponibile (un solo file per tutti i pesi). Pesi: 300–700.
 
+**font-display scelto**: `swap` — Next.js mostra il font di sistema immediatamente e lo
+sostituisce con il custom font appena caricato. Il font brand (Cormorant Garamond) è
+parte critica dell'identità visiva: non mostrarlo mai (come farebbe `optional` su reti
+lente) sarebbe peggio di un breve FOUT. Il preloading automatico di `next/font/google`
+minimizza il tempo di swap rendendo il FOUT impercettibile nella pratica.
+
 **Alternatives considered**:
+- `font-display: optional` — elimina FOUT ma sacrifica il font brand se la rete è lenta.
+  Incompatibile con un sito dove la tipografia è asset visivo primario (Principio I).
 - Fontsource (NPM): valido ma aggiunge bundle weight; `next/font/google` è più integrato.
 - Playfair Display: troppo formale/editoriale, meno calore organico di Cormorant.
 - Inter: ottimo ma neutro; DM Sans ha più personalità per il contesto wellness.
