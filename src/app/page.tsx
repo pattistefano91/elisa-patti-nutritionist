@@ -25,7 +25,7 @@ export default function Home() {
           {/* Label categoria */}
           <p
             className="text-label uppercase mb-4"
-            style={{ color: 'var(--color-primary-500)' }}
+            style={{ color: 'var(--color-primary-600)' }}
           >
             Biologa Nutrizionista
           </p>

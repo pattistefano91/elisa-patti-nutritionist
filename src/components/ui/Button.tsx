@@ -13,11 +13,11 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary: [
-    'bg-[#C45C38] text-white',
+    'bg-[#B85232] text-white',
     'hover:bg-[#9E4528]',
-    'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C45C38]',
-    'shadow-[0_0_20px_rgba(196,92,56,0.30)]',
-    'hover:shadow-[0_0_28px_rgba(196,92,56,0.45)]',
+    'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B85232]',
+    'shadow-[0_0_20px_rgba(184,82,50,0.30)]',
+    'hover:shadow-[0_0_28px_rgba(184,82,50,0.45)]',
   ].join(' '),
   secondary: [
     'bg-[#F2F5EF] text-[#374E30]',
