@@ -31,7 +31,13 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- [ ] **I. Design Organico**: nessuna forma squadrata o bordo vivo nei componenti di questa feature
+- [ ] **II. Conversion-First**: CTA primaria ("Prenota consulenza gratuita") presente e non competitiva
+- [ ] **III. Mobile-First**: layout progettato su 375px prima di 768px e 1280px
+- [ ] **IV. Performance**: nessuna dipendenza che degradi LCP/CLS/INP sotto i target
+- [ ] **V. GDPR**: nessun dato personale o cookie di terze parti senza consenso esplicito
+- [ ] **VI. CMS-First**: contenuti testuali/immagini gestibili via Sanity senza developer
+- [ ] **VII. YAGNI**: nessuna astrazione introdotta senza necessity concreta in questa feature
 
 ## Project Structure
 
