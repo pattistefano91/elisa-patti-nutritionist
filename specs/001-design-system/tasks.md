@@ -85,17 +85,17 @@ del design system in ≤ 30 minuti, senza decisioni soggettive su colori o spazi
 `@/components/ui` e classi Tailwind dal design system, senza nessun valore hardcoded,
 in meno di 30 minuti dall'apertura del file.
 
-- [ ] T018 [P] [US2] Creare `src/components/ui/Card.tsx` — componente con props `variant` (`default` | `muted` | `warm`), `shadow` (`sm` | `md` | `lg`); default: `bg-surface-card rounded-2xl shadow-md p-6`; muted: `bg-surface-muted`; warm: `bg-surface-warm`; accetta `className` e `children`
-- [ ] T019 [P] [US2] Creare `src/components/ui/Input.tsx` — componente input testo con props `label`, `error`, `disabled`; stati: default `border-neutral-300`, focus `border-primary-500 ring-2 ring-primary-100`, error `border-error`, disabled `opacity-50`; `rounded-lg`; usa `@radix-ui/react-slot` per forwarding ref
-- [ ] T020 [P] [US2] Creare `src/components/ui/Textarea.tsx` — analogo a Input ma per `<textarea>`; stessi stati e stile; auto-resize opzionale via `rows` prop
-- [ ] T021 [P] [US2] Creare `src/components/ui/Badge.tsx` — componente pill con props `variant` (`primary` | `secondary` | `accent` | `neutral`); sempre `rounded-full`; size unica; primary: `bg-primary-100 text-primary-700`; accent: `bg-accent-100 text-accent-700`
-- [ ] T022 [P] [US2] Creare `src/components/ui/Avatar.tsx` — componente con props `src`, `alt`, `size` (`sm` | `md` | `lg`); usa `@radix-ui/react-avatar` per fallback initials; forma: `rounded-full` (CSS) con effetto organico opzionale via `BlobFrame` come mask; fallback: initials su sfondo `primary-100`
-- [ ] T023 [P] [US2] Creare `src/components/ui/Divider.tsx` — linea divisoria con props `orientation` (`horizontal` | `vertical`), `variant` (`solid` | `dashed` | `decorative`); decorative usa gradiente da `secondary-200` a `transparent`
-- [ ] T024 [P] [US2] Creare `src/components/ui/Skeleton.tsx` — placeholder loading con props `width`, `height`, `variant` (`line` | `circle` | `card`); animazione pulse via Framer Motion; rispetta `prefers-reduced-motion` (no animazione se ridotta)
-- [ ] T025 [US2] Creare `src/components/ui/Container.tsx` — wrapper layout con `max-width: var(--container-max-width)` (1200px), `padding-inline: var(--container-padding-mobile)` su mobile e `var(--container-padding-desktop)` su desktop (media query `md:`), `margin-inline: auto`; props: `as` (tag HTML, default `div`), `className`, `children`; questo componente è prerequisito per tutte le feature di layout (002+)
-- [ ] T026 [US2] Creare `src/components/ui/index.ts` — barrel export di tutti i componenti: `Button`, `Card`, `Input`, `Textarea`, `Badge`, `Avatar`, `Divider`, `Skeleton`, `Container`
-- [ ] T027 [US2] Creare `src/components/shapes/index.ts` — barrel export: `BlobHero`, `BlobFrame`, `BlobSection`
-- [ ] T028 [US2] Aggiornare `specs/001-design-system/quickstart.md` — sostituire i percorsi di import con i percorsi reali verificati (`@/components/ui`, `@/components/shapes`); aggiungere esempio completo di Card servizio costruita con i componenti; aggiungere esempio di Container wrapping una sezione
+- [x] T018 [P] [US2] Creare `src/components/ui/Card.tsx` — componente con props `variant` (`default` | `muted` | `warm`), `shadow` (`sm` | `md` | `lg`); default: `bg-surface-card rounded-2xl shadow-md p-6`; muted: `bg-surface-muted`; warm: `bg-surface-warm`; accetta `className` e `children`
+- [x] T019 [P] [US2] Creare `src/components/ui/Input.tsx` — componente input testo con props `label`, `error`, `disabled`; stati: default `border-neutral-300`, focus `border-primary-500 ring-2 ring-primary-100`, error `border-error`, disabled `opacity-50`; `rounded-lg`; usa `@radix-ui/react-slot` per forwarding ref
+- [x] T020 [P] [US2] Creare `src/components/ui/Textarea.tsx` — analogo a Input ma per `<textarea>`; stessi stati e stile; auto-resize opzionale via `rows` prop
+- [x] T021 [P] [US2] Creare `src/components/ui/Badge.tsx` — componente pill con props `variant` (`primary` | `secondary` | `accent` | `neutral`); sempre `rounded-full`; size unica; primary: `bg-primary-100 text-primary-700`; accent: `bg-accent-100 text-accent-700`
+- [x] T022 [P] [US2] Creare `src/components/ui/Avatar.tsx` — componente con props `src`, `alt`, `size` (`sm` | `md` | `lg`); usa `@radix-ui/react-avatar` per fallback initials; forma: `rounded-full` (CSS) con effetto organico opzionale via `BlobFrame` come mask; fallback: initials su sfondo `primary-100`
+- [x] T023 [P] [US2] Creare `src/components/ui/Divider.tsx` — linea divisoria con props `orientation` (`horizontal` | `vertical`), `variant` (`solid` | `dashed` | `decorative`); decorative usa gradiente da `secondary-200` a `transparent`
+- [x] T024 [P] [US2] Creare `src/components/ui/Skeleton.tsx` — placeholder loading con props `width`, `height`, `variant` (`line` | `circle` | `card`); animazione pulse via Framer Motion; rispetta `prefers-reduced-motion` (no animazione se ridotta)
+- [x] T025 [US2] Creare `src/components/ui/Container.tsx` — wrapper layout con `max-width: var(--container-max-width)` (1200px), `padding-inline: var(--container-padding-mobile)` su mobile e `var(--container-padding-desktop)` su desktop (media query `md:`), `margin-inline: auto`; props: `as` (tag HTML, default `div`), `className`, `children`; questo componente è prerequisito per tutte le feature di layout (002+)
+- [x] T026 [US2] Creare `src/components/ui/index.ts` — barrel export di tutti i componenti: `Button`, `Card`, `Input`, `Textarea`, `Badge`, `Avatar`, `Divider`, `Skeleton`, `Container`
+- [x] T027 [US2] Creare `src/components/shapes/index.ts` — barrel export: `BlobHero`, `BlobFrame`, `BlobSection`
+- [x] T028 [US2] Aggiornare `specs/001-design-system/quickstart.md` — sostituire i percorsi di import con i percorsi reali verificati (`@/components/ui`, `@/components/shapes`); aggiungere esempio completo di Card servizio costruita con i componenti; aggiungere esempio di Container wrapping una sezione
 
 **Checkpoint**: Costruire una `Card` con `Badge`, `Button` e un testo usando solo import da `@/components/ui` senza nessun valore hex o font inline. Tempo ≤ 30 minuti. User Story 2 completa e indipendente.
 
@@ -110,9 +110,9 @@ senza richiedere modifiche radicali.
 con la cliente (via Vercel preview URL o screenshot). La cliente esprime approvazione
 senza richiedere cambio di colori o forme principali.
 
-- [ ] T029 [US3] Creare `docs/photography-guidelines.md` — linee guida fotografiche del design system: (1) mood fotografico atteso (luce naturale, sfondi neutri caldi, ambientazioni domestiche/naturali — no studi clinici bianchi); (2) trattamento colore (toni caldi, saturazione naturale, no filtri freddi o desaturati); (3) ratio immagini per contesto (hero: 16:9 o 4:3 landscape; avatar/profilo: 1:1; card servizio: 3:2); (4) esempi visivi do/don't descritti testualmente; (5) indicazioni per la Dott.ssa su come selezionare le foto da fornire
-- [ ] T030 [US3] Creare `src/app/brand-review/page.tsx` — pagina di preview non indicizzata (`export const metadata = { robots: 'noindex' }`) che mostra: l'intera palette cromatica come swatches con nome token e hex, la scala tipografica con testi di esempio in italiano, i 3 blob nelle loro dimensioni e colori tipici, tutti i componenti UI in tutti i loro stati e varianti, il Button CTA primario in contesto realistico
-- [ ] T031 [US3] Aggiungere a `src/app/brand-review/page.tsx` — sezione "Come appare above the fold" con un mockup del hero: blob-hero decorativo, heading-1 "Cura il tuo benessere con la nutrizione", sottotitolo body-lg, Button primary "Prenota consulenza gratuita", sfondo `surface-page`
+- [x] T029 [US3] Creare `docs/photography-guidelines.md` — linee guida fotografiche del design system: (1) mood fotografico atteso (luce naturale, sfondi neutri caldi, ambientazioni domestiche/naturali — no studi clinici bianchi); (2) trattamento colore (toni caldi, saturazione naturale, no filtri freddi o desaturati); (3) ratio immagini per contesto (hero: 16:9 o 4:3 landscape; avatar/profilo: 1:1; card servizio: 3:2); (4) esempi visivi do/don't descritti testualmente; (5) indicazioni per la Dott.ssa su come selezionare le foto da fornire
+- [x] T030 [US3] Creare `src/app/brand-review/page.tsx` — pagina di preview non indicizzata (`export const metadata = { robots: 'noindex' }`) che mostra: l'intera palette cromatica come swatches con nome token e hex, la scala tipografica con testi di esempio in italiano, i 3 blob nelle loro dimensioni e colori tipici, tutti i componenti UI in tutti i loro stati e varianti, il Button CTA primario in contesto realistico
+- [x] T031 [US3] Aggiungere a `src/app/brand-review/page.tsx` — sezione "Come appare above the fold" con un mockup del hero: blob-hero decorativo, heading-1 "Cura il tuo benessere con la nutrizione", sottotitolo body-lg, Button primary "Prenota consulenza gratuita", sfondo `surface-page`
 - [ ] T032 [US3] Fare deploy su Vercel (preview branch `001-design-system`) e condividere URL `[preview].vercel.app/brand-review` con la Dott.ssa Patti per approvazione
 
 **Checkpoint**: URL di preview condiviso. La Dott.ssa Patti approva la palette ("i colori mi rappresentano") e le forme ("le curve sono giuste"). Nessuna richiesta di cambio radicale. Se richieste modifiche: aggiornare i token in T009 e rigenerare il preview. User Story 3 completa quando approvazione ricevuta.
@@ -123,11 +123,11 @@ senza richiedere cambio di colori o forme principali.
 
 **Purpose**: Qualità, accessibilità, pulizia post-approvazione.
 
-- [ ] T033 [P] Aggiungere `next-sitemap` al progetto: `npm install next-sitemap`; creare `next-sitemap.config.js`; escludere `/brand-review` dalla sitemap pubblica
+- [x] T033 [P] Aggiungere `next-sitemap` al progetto: `npm install next-sitemap`; creare `next-sitemap.config.js`; escludere `/brand-review` dalla sitemap pubblica
 - [ ] T034 [P] Verificare con DevTools che `font-display: swap` sia applicato e che FOUT sia ≤ 100ms su connessione 3G simulata (Network throttling in Chrome DevTools)
-- [ ] T035 Creare `tests/smoke.spec.ts` con Playwright + axe: (1) installare `npm install --save-dev @axe-core/playwright`; (2) verificare font Cormorant Garamond caricato (`document.fonts.check('500 16px Cormorant Garamond')`); (3) verificare almeno un elemento con `data-testid="cta-primary"` visibile; (4) eseguire `checkA11y` di axe sull'intera pagina e assertire zero violazioni WCAG AA; (5) verificare `lang` dell'`<html>` è `"it"`
+- [x] T035 Creare `tests/smoke.spec.ts` con Playwright + axe: (1) installare `npm install --save-dev @axe-core/playwright`; (2) verificare font Cormorant Garamond caricato (`document.fonts.check('500 16px Cormorant Garamond')`); (3) verificare almeno un elemento con `data-testid="cta-primary"` visibile; (4) eseguire `checkA11y` di axe sull'intera pagina e assertire zero violazioni WCAG AA; (5) verificare `lang` dell'`<html>` è `"it"`
 - [ ] T036 Rimuovere o nascondere `src/app/brand-review/page.tsx` dopo approvazione (spostare in route non pubblica o eliminare)
-- [ ] T037 [P] Aggiornare `CLAUDE.md` con la struttura `src/` reale post-implementazione (sostituire la struttura di placeholder con quella effettiva)
+- [x] T037 [P] Aggiornare `CLAUDE.md` con la struttura `src/` reale post-implementazione (sostituire la struttura di placeholder con quella effettiva)
 
 ---
 
