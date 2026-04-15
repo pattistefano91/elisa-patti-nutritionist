@@ -17,7 +17,7 @@ export interface Location {
 }
 
 export const CONTACT: ContactInfo = {
-  email: 'info@elisapatti.it',
+  email: 'nutrizionista.elisapatti@gmail.com',
   phone: '+393914120895',
   phoneDisplay: '+39 391 412 0895',
   instagramUrl: 'https://www.instagram.com/nutrizionista.elisapatti/',
