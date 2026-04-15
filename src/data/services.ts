@@ -12,6 +12,7 @@ export interface Service {
   calendlyUrl: string
   bullets?: string[]
   featured?: boolean
+  hideCta?: boolean
 }
 
 export interface IncludedService {
@@ -65,6 +66,7 @@ export const SERVICES: Service[] = [
       'Monitoraggio progressi e misurazioni',
       'Percorsi a pacchetto 3 o 6 mesi disponibili',
     ],
+    hideCta: true,
   },
   {
     id: 'visita-online',

@@ -2,7 +2,7 @@
 
 **Feature Branch**: `002-sezione-servizi`
 **Created**: 2026-04-14
-**Status**: Draft
+**Status**: Revised — feedback Dott.ssa 2026-04-15
 
 ## User Scenarios & Testing *(mandatory)*
 
@@ -82,11 +82,11 @@ gratuita e iniziamo insieme il tuo percorso" e pulsante che porta a Calendly.
 ### Functional Requirements
 
 - **FR-001**: La sezione DEVE mostrare esattamente 4 card di servizio nell'ordine: Consulenza Gratuita, Prima Visita Nutrizionale, Visite di Controllo, Visita Online
-- **FR-002**: Ogni card DEVE contenere: nome del servizio, descrizione breve (2-3 righe), durata stimata, modalità (in studio / online), pulsante CTA "Prenota ora"
+- **FR-002**: Ogni card DEVE contenere: nome del servizio, descrizione breve (2-3 righe), durata stimata, modalità (in studio / online), pulsante CTA "Prenota ora" — **eccetto "Visite di Controllo"** che NON mostra il CTA diretto (si prenota solo dopo la prima visita; la card mostra una nota informativa al posto del bottone)
 - **FR-003**: La card "Consulenza Gratuita" DEVE mostrare un badge "Gratuita" ed essere visivamente distinta
 - **FR-004**: Ogni CTA DEVE aprire il **popup widget Calendly** tramite script ufficiale (`calendly.initPopupWidget`), con URL preimpostato sul servizio corretto
 - **FR-005**: La card "Visite di Controllo" DEVE menzionare la disponibilità di percorsi a pacchetto (3 o 6 mesi) con leggera scontistica
-- **FR-006**: Sotto la griglia DEVE comparire un banner "Servizi Inclusi" che presenta la Newsletter mensile gratuita (Nutrizione Pratica) con descrizione sintetica
+- **FR-006**: Sotto la griglia DEVE comparire un banner "Incluso in ogni percorso" per la Newsletter mensile gratuita (Nutrizione Pratica). Il banner DEVE avere prominenza visiva pari alle card dei servizi — non deve sembrare un elemento secondario. Usa sfondo colorato primario e layout full-width distinto
 - **FR-007**: In fondo alla sezione DEVE comparire un blocco CTA di recupero con testo "Non sai da dove iniziare? Prenota una consulenza gratuita e iniziamo insieme il tuo percorso" e pulsante verso Calendly
 - **FR-008**: La sezione DEVE essere accessibile (WCAG 2.1 AA): contrasto sufficiente, focus visibile, markup semantico corretto
 - **FR-009**: La sezione DEVE essere responsive: griglia **2+2** (2 colonne, 2 righe) su desktop, colonna singola su mobile. Ordine: riga 1 → Consulenza Gratuita + Prima Visita Nutrizionale; riga 2 → Visite di Controllo + Visita Online
@@ -120,6 +120,15 @@ Ogni mese riceverai un ricettario sano e semplice e una guida nutrizionale prati
 - **SC-004**: La sezione è completamente leggibile e funzionante su viewport 320px–1440px
 - **SC-005**: Il contenuto testuale di tutti i servizi può essere aggiornato in un unico punto del codice senza modificare i componenti UI
 
+## Feedback Cliente
+
+### Session 2026-04-15 — Revisione Dott.ssa Patti
+
+- **FB-001**: Visite di Controllo non deve avere il CTA "Prenota ora" — si prenota solo dopo la prima visita → rimuovere il bottone, aggiungere nota informativa
+- **FB-002**: La newsletter "Nutrizione Pratica" deve essere più evidente — attualmente sembra secondaria rispetto alle card servizi → banner full-width più prominente con sfondo verde primario
+- **FB-003**: Le foto della Dott.ssa saranno disponibili a breve (da inserire nella sezione about / hero) — copiate in `public/images/dottoressa/` per uso futuro
+- **FB-004**: Il resto piace molto — layout a griglia, testi, stile generale approvato
+
 ## Clarifications
 
 ### Session 2026-04-14
@@ -136,7 +145,8 @@ Ogni mese riceverai un ricettario sano e semplice e una guida nutrizionale prati
 - I prezzi non vengono mostrati nelle card — solo su richiesta diretta (scelta strategica per aumentare i contatti)
 - La sezione viene inserita nella home page esistente, subito dopo l'hero
 - Il widget Calendly viene integrato come **popup widget** tramite script ufficiale Calendly (`calendly.initPopupWidget`), non come iframe inline né redirect
-- Le foto dei servizi non sono richieste in questa feature — verranno aggiunte quando disponibili
+- Le foto della Dott.ssa sono state copiate in `public/images/dottoressa/` — verranno integrate nella sezione about (003) e nell'hero
+- La card "Visite di Controllo" non ha CTA diretto: il paziente arriva ai controlli dopo la prima visita, quindi un bottone "Prenota ora" sarebbe fuorviante
 - La bio della Dott.ssa non rientra in questa feature — sarà la sezione 003-about
 - Si usa il design system già approvato (001): componenti Card, Badge, Button, Container
 - I contenuti testuali provengono da sito.docx fornito dalla Dott.ssa Patti e sono da considerarsi definitivi salvo revisioni

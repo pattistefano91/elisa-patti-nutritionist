@@ -73,7 +73,18 @@ CTA finale apre lo stesso popup Calendly della consulenza gratuita.
 - [x] T011 [P] Verificare WCAG AA con axe — avviare `npm run dev`, aprire `localhost:3000`, eseguire `npx playwright test`; correggere eventuali violazioni di contrasto o accessibilità nella sezione servizi (cfr. fix già applicato in 001 per contrasto label)
 - [x] T012 [P] Aggiornare `tests/smoke.spec.ts` — aggiungere test: (1) la sezione servizi è visibile (`page.getByText('I Percorsi').toBeVisible()`); (2) sono presenti 4 card con testo "Prenota ora"; (3) il banner "Non sai da dove iniziare?" è visibile in fondo
 - [x] T013 [P] Aggiornare `CLAUDE.md` — aggiungere alla struttura `src/`: `src/data/services.ts` (array servizi, tipi, URL Calendly) e `src/components/sections/ServicesSection.tsx` (sezione servizi homepage)
-- [ ] T014 [P] Commit e push branch `002-sezione-servizi` — verificare che `npx tsc --noEmit` e `npm run build` passino; push su GitHub per deploy preview Vercel
+- [x] T014 [P] Commit e push branch `002-sezione-servizi` — verificare che `npx tsc --noEmit` e `npm run build` passino; push su GitHub per deploy preview Vercel
+
+---
+
+## Phase 6: Feedback Dott.ssa — 2026-04-15
+
+**Source**: `commenti sito.docx` — revisione Dott.ssa Patti dopo prima visualizzazione.
+
+- [x] T015 Aggiornare `spec.md` — aggiungere sezione "Feedback Cliente", aggiornare FR-002 (no CTA su Visite di Controllo), FR-006 (newsletter prominente), Assumptions
+- [x] T016 Rimuovere CTA "Prenota ora" da card "Visite di Controllo" — aggiungere `hideCta: boolean` a `Service` interface in `services.ts`; settare `hideCta: true` su `visite-controllo`; in `ServiceCard` mostrare nota "Disponibile dopo la prima visita" al posto del bottone
+- [x] T017 Ridisegnare `IncludedServicesBanner` — sfondo `--color-primary-700` (verde scuro), testo bianco, icon 3xl, heading-3 "Incluso in ogni percorso", badge Accent "Gratis", card interna semi-trasparente; prominenza visiva equivalente alle service card
+- [x] T018 Copiare foto Dott.ssa in `public/images/dottoressa/` — `elisa-patti-studio-1.jpg` (IMG_4828) e `elisa-patti-studio-2.jpg` (IMG_4833); pronte per uso in sezione about (003) e hero
 
 ---
 

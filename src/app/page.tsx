@@ -56,9 +56,12 @@ export default function Home() {
             <Button variant="primary" size="lg">
               Prenota consulenza gratuita
             </Button>
-            <Button variant="secondary" size="lg">
+            <a
+              href="#servizi"
+              className="inline-flex items-center justify-center gap-2 rounded-full font-medium transition-all duration-[150ms] cursor-pointer select-none px-8 py-4 text-lg bg-[#F2F5EF] text-[#374E30] border border-[#C2D3B8] hover:bg-[#E0E9DA] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5E8350]"
+            >
               Scopri i servizi
-            </Button>
+            </a>
           </div>
         </div>
       </div>

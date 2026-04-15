@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* ─────────────────────────────────────────────
    DESIGN SYSTEM — Palette "Naturalis"
    Elisa Patti — Biologa Nutrizionista

@@ -95,56 +95,78 @@ function ServiceCard({ service }: { service: Service }) {
       )}
 
       {/* CTA */}
-      <Button
-        variant={service.featured ? 'primary' : 'secondary'}
-        size="md"
-        className="w-full mt-auto"
-        onClick={() => openCalendly(service.calendlyUrl)}
-        aria-label={`Prenota ${service.name}`}
-      >
-        Prenota ora
-      </Button>
+      {service.hideCta ? (
+        <p
+          className="text-body-sm mt-auto pt-3 border-t text-center"
+          style={{
+            color: 'var(--color-neutral-500)',
+            borderColor: 'var(--color-neutral-200)',
+          }}
+        >
+          Disponibile dopo la prima visita
+        </p>
+      ) : (
+        <Button
+          variant={service.featured ? 'primary' : 'secondary'}
+          size="md"
+          className="w-full mt-auto"
+          onClick={() => openCalendly(service.calendlyUrl)}
+          aria-label={`Prenota ${service.name}`}
+        >
+          Prenota ora
+        </Button>
+      )}
     </Card>
   )
 }
 
 function IncludedServicesBanner({ services }: { services: IncludedService[] }) {
   return (
-    <Card variant="warm" shadow="sm" className="mt-8">
-      <div className="flex items-start gap-3 mb-4">
-        <span className="text-heading-5">🎁</span>
+    <div
+      className="mt-8 rounded-2xl px-8 py-10"
+      style={{ backgroundColor: 'var(--color-primary-700)' }}
+    >
+      {/* Intestazione */}
+      <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-6">
+        <span className="text-4xl">🎁</span>
         <div>
-          <h3
-            className="text-heading-5"
-            style={{ color: 'var(--color-neutral-900)' }}
-          >
-            Servizi Inclusi
-          </h3>
+          <div className="flex items-center gap-3 flex-wrap">
+            <h3
+              className="text-heading-3"
+              style={{ color: 'white' }}
+            >
+              Incluso in ogni percorso
+            </h3>
+            <Badge variant="accent">Gratis</Badge>
+          </div>
           <p
-            className="text-body-sm"
-            style={{ color: 'var(--color-neutral-500)' }}
+            className="text-body-md mt-1"
+            style={{ color: 'var(--color-primary-100)' }}
           >
-            Inclusi in ogni percorso, senza costi aggiuntivi
+            Un regalo concreto per ogni paziente, senza costi aggiuntivi
           </p>
         </div>
       </div>
-      <div className="flex flex-col sm:flex-row gap-4">
+
+      {/* Servizi inclusi */}
+      <div className="flex flex-col sm:flex-row gap-6">
         {services.map((s) => (
-          <div key={s.id} className="flex items-start gap-3 flex-1">
-            <span className="text-2xl">{s.icon}</span>
+          <div
+            key={s.id}
+            className="flex items-start gap-4 flex-1 rounded-xl p-5"
+            style={{ backgroundColor: 'rgba(255,255,255,0.10)' }}
+          >
+            <span className="text-3xl shrink-0">{s.icon}</span>
             <div>
-              <div className="flex items-center gap-2 mb-1">
-                <p
-                  className="text-label"
-                  style={{ color: 'var(--color-neutral-800)' }}
-                >
-                  {s.name}
-                </p>
-                <Badge variant="primary">{s.subtitle}</Badge>
-              </div>
+              <p
+                className="text-label mb-1"
+                style={{ color: 'white' }}
+              >
+                {s.name}
+              </p>
               <p
                 className="text-body-sm"
-                style={{ color: 'var(--color-neutral-600)' }}
+                style={{ color: 'var(--color-primary-100)' }}
               >
                 {s.description}
               </p>
@@ -152,7 +174,7 @@ function IncludedServicesBanner({ services }: { services: IncludedService[] }) {
           </div>
         ))}
       </div>
-    </Card>
+    </div>
   )
 }
 
@@ -189,6 +211,7 @@ function ServicesCtaBanner() {
 export function ServicesSection() {
   return (
     <section
+      id="servizi"
       aria-labelledby="services-heading"
       style={{ backgroundColor: 'var(--color-surface-page)' }}
       className="py-20"

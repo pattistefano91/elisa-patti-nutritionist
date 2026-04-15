@@ -37,10 +37,10 @@ test.describe('Smoke — Sezione Servizi', () => {
     await expect(page.getByText('I Percorsi')).toBeVisible()
   })
 
-  test('4 card con bottone "Prenota ora"', async ({ page }) => {
+  test('3 card con bottone "Prenota ora" (Visite di Controllo escluse)', async ({ page }) => {
     await page.goto('/')
     const prenotaButtons = page.getByRole('button', { name: /Prenota ora/i })
-    await expect(prenotaButtons).toHaveCount(4)
+    await expect(prenotaButtons).toHaveCount(3)
   })
 
   test('banner "Non sai da dove iniziare?" visibile in fondo', async ({ page }) => {
