@@ -26,12 +26,30 @@ export const CONTACT: ContactInfo = {
 
 export const LOCATIONS: Location[] = [
   {
-    id: 'studio-1',
-    name: 'Studio Nutrizionale',
-    address: 'Via Placeholder 1',
-    city: 'Città',
-    cap: '00000',
-    province: 'XX',
-    googleMapsUrl: 'https://maps.google.com/?q=Via+Placeholder+1+Città',
+    id: 'studio-principale',
+    name: 'Studio',
+    address: 'Via Luigi Einaudi, 176',
+    city: 'Civitanova Marche',
+    cap: '62012',
+    province: 'MC',
+    googleMapsUrl: 'https://maps.google.com/?q=Via+Luigi+Einaudi+176+Civitanova+Marche+MC',
+  },
+  {
+    id: 'palestra-exe-fit',
+    name: 'Palestra Exe Fit',
+    address: 'Via Luigi Einaudi, 394',
+    city: 'Civitanova Marche',
+    cap: '62012',
+    province: 'MC',
+    googleMapsUrl: 'https://maps.google.com/?q=Via+Luigi+Einaudi+394+Civitanova+Marche+MC',
+  },
+  {
+    id: 'palestra-energym',
+    name: 'Palestra Energym Civitanova Sport',
+    address: 'Via Giuseppe Morosini, 9',
+    city: 'Civitanova Marche',
+    cap: '62012',
+    province: 'MC',
+    googleMapsUrl: 'https://maps.google.com/?q=Via+Giuseppe+Morosini+9+Civitanova+Marche+MC',
   },
 ]
