@@ -55,7 +55,7 @@ sono impilate (recapiti sopra, location sotto). Con `LOCATIONS = []` la griglia 
 - [x] T005 [P] Verificare WCAG AA con axe — avviare `npm run dev`, aprire `localhost:3000`, eseguire `npx playwright test`; correggere eventuali violazioni di contrasto o accessibilità nella sezione contatti (controllare in particolare i link con aria-label e il contrasto dei link hover)
 - [x] T006 [P] Aggiornare `tests/smoke.spec.ts` — aggiungere test: (1) la sezione contatti è visibile (`page.getByText('Contatti').toBeVisible()`); (2) è presente un link con `href` che inizia con `mailto:`; (3) è presente un link con `href` che inizia con `tel:`
 - [x] T007 [P] Aggiornare `CLAUDE.md` — aggiungere alla struttura `src/`: `src/data/contact.ts` (dati contatto, location, tipi) e `src/components/sections/ContactSection.tsx` (sezione contatti homepage)
-- [ ] T008 [P] Commit e push branch `003-sezione-contatti` — verificare che `npx tsc --noEmit` e `npm run build` passino; push su GitHub per deploy preview Vercel
+- [x] T008 [P] Commit e push branch `003-sezione-contatti` — verificare che `npx tsc --noEmit` e `npm run build` passino; push su GitHub per deploy preview Vercel
 
 ---
 

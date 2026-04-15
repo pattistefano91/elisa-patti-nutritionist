@@ -1,7 +1,10 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
 import { fontDisplay, fontBody } from '@/lib/fonts'
+import Footer from '@/components/sections/Footer'
 import './globals.css'
+
+const plausibleDomain = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN
 
 export const metadata: Metadata = {
   title: 'Dott.ssa Elisa Patti — Biologa Nutrizionista',
@@ -28,10 +31,19 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col">
         {children}
+        <Footer />
         <Script
           src="https://assets.calendly.com/assets/external/widget.js"
           strategy="lazyOnload"
         />
+        {plausibleDomain && (
+          <Script
+            defer
+            data-domain={plausibleDomain}
+            src="https://plausible.io/js/script.js"
+            strategy="afterInteractive"
+          />
+        )}
       </body>
     </html>
   )
