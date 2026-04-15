@@ -31,6 +31,25 @@ test.describe('Smoke — Home page', () => {
   })
 })
 
+test.describe('Smoke — Sezione Contatti', () => {
+  test('sezione contatti visibile con titolo "Contatti"', async ({ page }) => {
+    await page.goto('/')
+    await expect(page.getByText('Contatti').first()).toBeVisible()
+  })
+
+  test('link mailto: presente', async ({ page }) => {
+    await page.goto('/')
+    const emailLink = page.locator('a[href^="mailto:"]')
+    await expect(emailLink).toBeVisible()
+  })
+
+  test('link tel: presente', async ({ page }) => {
+    await page.goto('/')
+    const telLink = page.locator('a[href^="tel:"]')
+    await expect(telLink).toBeVisible()
+  })
+})
+
 test.describe('Smoke — Sezione Servizi', () => {
   test('sezione servizi visibile con titolo "I Percorsi"', async ({ page }) => {
     await page.goto('/')

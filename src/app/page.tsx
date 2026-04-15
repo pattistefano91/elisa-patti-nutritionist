@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/Button'
 import { Divider } from '@/components/ui/Divider'
 import { BlobHero } from '@/components/shapes/BlobHero'
 import { ServicesSection } from '@/components/sections/ServicesSection'
+import { ContactSection } from '@/components/sections/ContactSection'
 
 export default function Home() {
   return (
@@ -118,6 +119,8 @@ export default function Home() {
 
       <Divider />
       <ServicesSection />
+      <Divider />
+      <ContactSection />
     </>
   )
 }
