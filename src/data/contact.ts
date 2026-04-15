@@ -18,10 +18,10 @@ export interface Location {
 
 export const CONTACT: ContactInfo = {
   email: 'info@elisapatti.it',
-  phone: '+39000000000',
-  phoneDisplay: '+39 000 000 0000',
-  instagramUrl: 'https://instagram.com/elisapatti',
-  instagramHandle: '@elisapatti',
+  phone: '+393914120895',
+  phoneDisplay: '+39 391 412 0895',
+  instagramUrl: 'https://www.instagram.com/nutrizionista.elisapatti/',
+  instagramHandle: '@nutrizionista.elisapatti',
 }
 
 export const LOCATIONS: Location[] = [
