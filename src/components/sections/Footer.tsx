@@ -15,7 +15,7 @@ export default function Footer() {
               {PROFESSIONAL.title}
             </p>
             <p className="text-caption text-neutral-500">
-              Iscritta all&apos;{PROFESSIONAL.alboOrder} n.&nbsp;{PROFESSIONAL.alboNumber}
+              {PROFESSIONAL.alboOrder} — {PROFESSIONAL.alboNumber}
             </p>
           </div>
           <div className="flex flex-col sm:items-end gap-2">

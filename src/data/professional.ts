@@ -8,6 +8,6 @@ export interface ProfessionalInfo {
 export const PROFESSIONAL: ProfessionalInfo = {
   name: 'Dott.ssa Elisa Patti',
   title: 'Biologa Nutrizionista',
-  alboOrder: 'Ordine Nazionale dei Biologi',
-  alboNumber: 'AA_XXXXX', // TODO: sostituire con numero iscrizione albo reale
+  alboOrder: 'Albo dei Biologi dell\'Emilia Romagna e delle Marche',
+  alboNumber: 'Sezione A n. 5404',
 }
