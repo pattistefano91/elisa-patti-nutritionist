@@ -91,7 +91,7 @@
 
 - [x] T012 Verificare build pulita — eseguire `npx tsc --noEmit` (zero errori TypeScript) e `npm run build` senza `SITE_URL` impostata (il build non deve fallire); verificare che `public/sitemap.xml` e `public/robots.txt` siano generati
 
-- [ ] T013 Commit e push branch `004-deploy-produzione` — verificare che il deploy Vercel preview sia verde; aprire PR verso `main`; dopo approvazione PR, merge su `main` completa US1 (sito raggiungibile su `*.vercel.app`)
+- [x] T013 Commit e push branch `004-deploy-produzione` — verificare che il deploy Vercel preview sia verde; aprire PR verso `main`; dopo approvazione PR, merge su `main` completa US1 (sito raggiungibile su `*.vercel.app`)
 
 ---
 

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Script from 'next/script'
 import { fontDisplay, fontBody } from '@/lib/fonts'
 import Footer from '@/components/sections/Footer'
+import Navbar from '@/components/sections/Navbar'
 import './globals.css'
 
 const plausibleDomain = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN
@@ -30,6 +31,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col">
+        <Navbar />
         {children}
         <Footer />
         <Script

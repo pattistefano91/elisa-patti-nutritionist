@@ -1,12 +1,14 @@
 # ELISA PATTI Development Guidelines
 
-Auto-generated from all feature plans. Last updated: 2026-04-15
+Auto-generated from all feature plans. Last updated: 2026-04-16
 
 ## Active Technologies
 - TypeScript 5+ strict, Node.js 20 LTS + Next.js 15 App Router, Tailwind CSS v4, design system 001 (002-sezione-servizi)
 - N/A — dati statici in `src/data/contact.ts` (002-sezione-servizi)
 - TypeScript 5+ strict + noUncheckedIndexedAccess, Node.js 20 LTS + Next.js 15 App Router, next-sitemap, next/script (Plausible), Tailwind CSS v4 (002-sezione-servizi)
 - N/A — sito statico, nessun database (002-sezione-servizi)
+- TypeScript 5+ strict + noUncheckedIndexedAccess, Node.js 20 LTS + Next.js 15 App Router, `next/navigation` (usePathname), Tailwind CSS v4, clsx + tailwind-merge (002-sezione-servizi)
+- N/A — dati statici in `src/data/navigation.ts` (002-sezione-servizi)
 
 - **Framework**: Next.js 15 (App Router), TypeScript strict + noUncheckedIndexedAccess, Node.js 20 LTS
 - **Styling**: Tailwind CSS v4 (`@theme` CSS-first, no tailwind.config.js), clsx + tailwind-merge
@@ -21,8 +23,14 @@ Auto-generated from all feature plans. Last updated: 2026-04-15
 src/
 ├── app/
 │   ├── globals.css            ← @theme Tailwind v4: tutti i design token (colori, tipografia, spaziature)
-│   ├── layout.tsx             ← Root layout: lang="it", font variables, Footer, Plausible Script
+│   ├── layout.tsx             ← Root layout: lang="it", font variables, Navbar, Footer, Plausible Script
 │   ├── page.tsx               ← Hero page: identità visiva above the fold
+│   ├── about/
+│   │   └── page.tsx           ← Chi sono — placeholder
+│   ├── servizi/
+│   │   └── page.tsx           ← Servizi — placeholder, link a /#servizi
+│   ├── blog/
+│   │   └── page.tsx           ← Blog — placeholder, noindex
 │   ├── privacy/
 │   │   └── page.tsx           ← Privacy Policy (boilerplate GDPR italiano — placeholder)
 │   ├── cookie-policy/
@@ -42,6 +50,7 @@ src/
 │   │   ├── Skeleton.tsx       ← Placeholder loading con animate-pulse
 │   │   └── Textarea.tsx       ← Textarea con stessi stati di Input
 │   ├── sections/
+│   │   ├── Navbar.tsx          ← Navbar sticky, hamburger mobile, active state (client component)
 │   │   ├── ServicesSection.tsx ← Sezione servizi homepage (griglia 4 card, Calendly CTA, newsletter)
 │   │   ├── ContactSection.tsx  ← Sezione contatti homepage (email, tel, Instagram, location + Google Maps)
 │   │   └── Footer.tsx          ← Footer globale (layout.tsx): dati professionali + link Privacy/Cookie Policy
@@ -53,6 +62,7 @@ src/
 ├── data/
 │   ├── services.ts            ← Array servizi, tipi Service/IncludedService, URL Calendly placeholder
 │   ├── contact.ts             ← Dati contatto (email, tel, Instagram) e location, tipi ContactInfo/Location
+│   ├── navigation.ts          ← Voci navbar: interface NavLink, NAV_LINKS (Chi sono, Servizi, Blog, Contatti)
 │   └── professional.ts        ← Dati professionali footer: nome, titolo, albo (placeholder alboNumber)
 └── lib/
     └── fonts.ts               ← Cormorant Garamond + DM Sans con variabili CSS
@@ -87,11 +97,10 @@ npx tsc --noEmit # type check
 ```
 
 ## Recent Changes
+- 002-sezione-servizi: Added TypeScript 5+ strict + noUncheckedIndexedAccess, Node.js 20 LTS + Next.js 15 App Router, `next/navigation` (usePathname), Tailwind CSS v4, clsx + tailwind-merge
 - 002-sezione-servizi: Added TypeScript 5+ strict + noUncheckedIndexedAccess, Node.js 20 LTS + Next.js 15 App Router, next-sitemap, next/script (Plausible), Tailwind CSS v4
 - 002-sezione-servizi: Added TypeScript 5+ strict, Node.js 20 LTS + Next.js 15 App Router, Tailwind CSS v4, design system 001
 
-- 003-sezione-contatti: Sezione contatti completa — email (mailto:), telefono (tel:), Instagram, location con Google Maps. Dati placeholder in src/data/contact.ts (da aggiornare con dati reali Dott.ssa).
-- 004-deploy-produzione: Footer legale (Footer.tsx), pagine /privacy e /cookie-policy (boilerplate GDPR italiano), Plausible Analytics condizionale (NEXT_PUBLIC_PLAUSIBLE_DOMAIN), .env.example. Placeholder alboNumber in professional.ts da aggiornare con numero iscrizione albo reale.
 
 <!-- MANUAL ADDITIONS START -->
 <!-- MANUAL ADDITIONS END -->
