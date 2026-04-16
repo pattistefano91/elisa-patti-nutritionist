@@ -30,3 +30,71 @@ test.describe('Smoke — Home page', () => {
     expect(results.violations).toEqual([])
   })
 })
+
+test.describe('Smoke — Sezione Contatti', () => {
+  test('sezione contatti visibile con titolo "Contatti"', async ({ page }) => {
+    await page.goto('/')
+    await expect(page.getByText('Contatti').first()).toBeVisible()
+  })
+
+  test('link mailto: presente', async ({ page }) => {
+    await page.goto('/')
+    const emailLink = page.locator('a[href^="mailto:"]')
+    await expect(emailLink).toBeVisible()
+  })
+
+  test('link tel: presente', async ({ page }) => {
+    await page.goto('/')
+    const telLink = page.locator('a[href^="tel:"]')
+    await expect(telLink).toBeVisible()
+  })
+})
+
+test.describe('Smoke — Footer e Pagine Legali', () => {
+  test('footer visibile in pagina', async ({ page }) => {
+    await page.goto('/')
+    await expect(page.locator('footer')).toBeVisible()
+  })
+
+  test('link Privacy Policy nel footer', async ({ page }) => {
+    await page.goto('/')
+    await expect(page.locator('footer a[href="/privacy"]')).toBeVisible()
+  })
+
+  test('link Cookie Policy nel footer', async ({ page }) => {
+    await page.goto('/')
+    await expect(page.locator('footer a[href="/cookie-policy"]')).toBeVisible()
+  })
+
+  test('pagina /privacy risponde con titolo corretto', async ({ page }) => {
+    await page.goto('/privacy')
+    await expect(page).toHaveTitle(/Privacy Policy/)
+  })
+
+  test('pagina /cookie-policy risponde con titolo corretto', async ({ page }) => {
+    await page.goto('/cookie-policy')
+    await expect(page).toHaveTitle(/Cookie Policy/)
+  })
+
+  // Nota: la presenza dello script Plausible (plausible.io/js/script.js) nel DOM
+  // va verificata manualmente quando NEXT_PUBLIC_PLAUSIBLE_DOMAIN è impostata in Vercel
+  // (non testabile in CI senza account reale)
+})
+
+test.describe('Smoke — Sezione Servizi', () => {
+  test('sezione servizi visibile con titolo "I Percorsi"', async ({ page }) => {
+    await page.goto('/')
+    await expect(page.getByText('I Percorsi')).toBeVisible()
+  })
+
+  test('3 card con bottone "Prenota ora" (Visite di Controllo escluse)', async ({ page }) => {
+    await page.goto('/')
+    const prenotaButtons = page.getByRole('button', { name: /Prenota ora/i })
+    await expect(prenotaButtons).toHaveCount(3)
+  })
+
+  test('banner "Non sai da dove iniziare?" visibile in fondo', async ({ page }) => {
+    await page.goto('/')
+    await expect(page.getByText('Non sai da dove iniziare?')).toBeVisible()
+  })
+})

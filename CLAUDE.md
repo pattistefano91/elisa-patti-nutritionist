@@ -1,8 +1,12 @@
 # ELISA PATTI Development Guidelines
 
-Auto-generated from all feature plans. Last updated: 2026-04-14
+Auto-generated from all feature plans. Last updated: 2026-04-15
 
 ## Active Technologies
+- TypeScript 5+ strict, Node.js 20 LTS + Next.js 15 App Router, Tailwind CSS v4, design system 001 (002-sezione-servizi)
+- N/A — dati statici in `src/data/contact.ts` (002-sezione-servizi)
+- TypeScript 5+ strict + noUncheckedIndexedAccess, Node.js 20 LTS + Next.js 15 App Router, next-sitemap, next/script (Plausible), Tailwind CSS v4 (002-sezione-servizi)
+- N/A — sito statico, nessun database (002-sezione-servizi)
 
 - **Framework**: Next.js 15 (App Router), TypeScript strict + noUncheckedIndexedAccess, Node.js 20 LTS
 - **Styling**: Tailwind CSS v4 (`@theme` CSS-first, no tailwind.config.js), clsx + tailwind-merge
@@ -17,8 +21,12 @@ Auto-generated from all feature plans. Last updated: 2026-04-14
 src/
 ├── app/
 │   ├── globals.css            ← @theme Tailwind v4: tutti i design token (colori, tipografia, spaziature)
-│   ├── layout.tsx             ← Root layout: lang="it", font variables su <html>
+│   ├── layout.tsx             ← Root layout: lang="it", font variables, Footer, Plausible Script
 │   ├── page.tsx               ← Hero page: identità visiva above the fold
+│   ├── privacy/
+│   │   └── page.tsx           ← Privacy Policy (boilerplate GDPR italiano — placeholder)
+│   ├── cookie-policy/
+│   │   └── page.tsx           ← Cookie Policy (solo cookie tecnici — placeholder)
 │   └── brand-review/
 │       └── page.tsx           ← Pagina revisione brand (noindex) — rimuovere dopo approvazione cliente
 ├── components/
@@ -33,11 +41,19 @@ src/
 │   │   ├── Input.tsx          ← Input testo con label, errore, stati focus/disabled
 │   │   ├── Skeleton.tsx       ← Placeholder loading con animate-pulse
 │   │   └── Textarea.tsx       ← Textarea con stessi stati di Input
+│   ├── sections/
+│   │   ├── ServicesSection.tsx ← Sezione servizi homepage (griglia 4 card, Calendly CTA, newsletter)
+│   │   ├── ContactSection.tsx  ← Sezione contatti homepage (email, tel, Instagram, location + Google Maps)
+│   │   └── Footer.tsx          ← Footer globale (layout.tsx): dati professionali + link Privacy/Cookie Policy
 │   └── shapes/
 │       ├── index.ts           ← Barrel export: tutti i blob SVG
 │       ├── BlobHero.tsx       ← SVG blob principale (hero decorativo)
 │       ├── BlobFrame.tsx      ← SVG blob per frame/avatar
 │       └── BlobSection.tsx    ← SVG blob per sezioni di contenuto
+├── data/
+│   ├── services.ts            ← Array servizi, tipi Service/IncludedService, URL Calendly placeholder
+│   ├── contact.ts             ← Dati contatto (email, tel, Instagram) e location, tipi ContactInfo/Location
+│   └── professional.ts        ← Dati professionali footer: nome, titolo, albo (placeholder alboNumber)
 └── lib/
     └── fonts.ts               ← Cormorant Garamond + DM Sans con variabili CSS
 docs/
@@ -71,8 +87,11 @@ npx tsc --noEmit # type check
 ```
 
 ## Recent Changes
+- 002-sezione-servizi: Added TypeScript 5+ strict + noUncheckedIndexedAccess, Node.js 20 LTS + Next.js 15 App Router, next-sitemap, next/script (Plausible), Tailwind CSS v4
+- 002-sezione-servizi: Added TypeScript 5+ strict, Node.js 20 LTS + Next.js 15 App Router, Tailwind CSS v4, design system 001
 
-- 001-design-system: Design system completo — Phase 1–5 implemented (T001–T031, T033). Pending: T032 (Vercel deploy), T034 (FOUT check), T035 (Playwright smoke test), T036 (rimuovi brand-review post-approvazione)
+- 003-sezione-contatti: Sezione contatti completa — email (mailto:), telefono (tel:), Instagram, location con Google Maps. Dati placeholder in src/data/contact.ts (da aggiornare con dati reali Dott.ssa).
+- 004-deploy-produzione: Footer legale (Footer.tsx), pagine /privacy e /cookie-policy (boilerplate GDPR italiano), Plausible Analytics condizionale (NEXT_PUBLIC_PLAUSIBLE_DOMAIN), .env.example. Placeholder alboNumber in professional.ts da aggiornare con numero iscrizione albo reale.
 
 <!-- MANUAL ADDITIONS START -->
 <!-- MANUAL ADDITIONS END -->
