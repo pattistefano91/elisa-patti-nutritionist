@@ -120,6 +120,42 @@ test.describe('Smoke — Navbar', () => {
   })
 })
 
+test.describe('Smoke — Pagina Chi sono', () => {
+  test('title corretto', async ({ page }) => {
+    await page.goto('/about')
+    await expect(page).toHaveTitle(/Chi sono/)
+  })
+
+  test('foto Dott.ssa visibile', async ({ page }) => {
+    await page.goto('/about')
+    await expect(page.locator('img[alt*="Elisa Patti"]')).toBeVisible()
+  })
+
+  test('nome Dott.ssa Elisa Patti visibile', async ({ page }) => {
+    await page.goto('/about')
+    await expect(
+      page.getByRole('heading', { name: /Dott\.ssa Elisa Patti/ }),
+    ).toBeVisible()
+  })
+
+  test('sezione filosofia visibile', async ({ page }) => {
+    await page.goto('/about')
+    await expect(page.getByText('La mia filosofia')).toBeVisible()
+  })
+
+  test('sezione formazione visibile', async ({ page }) => {
+    await page.goto('/about')
+    await expect(page.getByText('Formazione')).toBeVisible()
+  })
+
+  test('CTA "Prenota ora" presente', async ({ page }) => {
+    await page.goto('/about')
+    await expect(
+      page.getByRole('button', { name: /Prenota ora/i }).first(),
+    ).toBeVisible()
+  })
+})
+
 test.describe('Smoke — Sezione Servizi', () => {
   test('sezione servizi visibile con titolo "I Percorsi"', async ({ page }) => {
     await page.goto('/')
