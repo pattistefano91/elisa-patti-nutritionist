@@ -81,6 +81,45 @@ test.describe('Smoke — Footer e Pagine Legali', () => {
   // (non testabile in CI senza account reale)
 })
 
+test.describe('Smoke — Navbar', () => {
+  test('navbar presente con aria-label corretto', async ({ page }) => {
+    await page.goto('/')
+    await expect(
+      page.locator('nav[aria-label="Navigazione principale"]'),
+    ).toBeVisible()
+  })
+
+  test('link Chi sono visibile su desktop', async ({ page }) => {
+    await page.goto('/')
+    await expect(page.locator('nav a[href="/about"]')).toBeVisible()
+  })
+
+  test('link Servizi visibile su desktop', async ({ page }) => {
+    await page.goto('/')
+    await expect(page.locator('nav a[href="/servizi"]')).toBeVisible()
+  })
+
+  test('link Blog visibile su desktop', async ({ page }) => {
+    await page.goto('/')
+    await expect(page.locator('nav a[href="/blog"]')).toBeVisible()
+  })
+
+  test('pagina /about risponde con titolo corretto', async ({ page }) => {
+    await page.goto('/about')
+    await expect(page).toHaveTitle(/Chi sono/)
+  })
+
+  test('pagina /servizi risponde con titolo corretto', async ({ page }) => {
+    await page.goto('/servizi')
+    await expect(page).toHaveTitle(/Servizi/)
+  })
+
+  test('pagina /blog risponde con titolo corretto', async ({ page }) => {
+    await page.goto('/blog')
+    await expect(page).toHaveTitle(/Blog/)
+  })
+})
+
 test.describe('Smoke — Sezione Servizi', () => {
   test('sezione servizi visibile con titolo "I Percorsi"', async ({ page }) => {
     await page.goto('/')
