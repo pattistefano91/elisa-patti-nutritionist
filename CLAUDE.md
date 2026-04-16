@@ -9,6 +9,8 @@ Auto-generated from all feature plans. Last updated: 2026-04-16
 - N/A — sito statico, nessun database (002-sezione-servizi)
 - TypeScript 5+ strict + noUncheckedIndexedAccess, Node.js 20 LTS + Next.js 15 App Router, `next/navigation` (usePathname), Tailwind CSS v4, clsx + tailwind-merge (002-sezione-servizi)
 - N/A — dati statici in `src/data/navigation.ts` (002-sezione-servizi)
+- TypeScript 5+ strict + noUncheckedIndexedAccess + Next.js 15 App Router, Tailwind CSS v4, next/image (006-chi-sono)
+- N/A — dati statici in `src/data/about.ts` (006-chi-sono)
 
 - **Framework**: Next.js 15 (App Router), TypeScript strict + noUncheckedIndexedAccess, Node.js 20 LTS
 - **Styling**: Tailwind CSS v4 (`@theme` CSS-first, no tailwind.config.js), clsx + tailwind-merge
@@ -51,6 +53,7 @@ src/
 │   │   └── Textarea.tsx       ← Textarea con stessi stati di Input
 │   ├── sections/
 │   │   ├── Navbar.tsx          ← Navbar sticky, hamburger mobile, active state (client component)
+│   │   ├── AboutCTA.tsx        ← CTA Calendly per pagina about (compact=hero button / default=full section)
 │   │   ├── ServicesSection.tsx ← Sezione servizi homepage (griglia 4 card, Calendly CTA, newsletter)
 │   │   ├── ContactSection.tsx  ← Sezione contatti homepage (email, tel, Instagram, location + Google Maps)
 │   │   └── Footer.tsx          ← Footer globale (layout.tsx): dati professionali + link Privacy/Cookie Policy
@@ -63,6 +66,7 @@ src/
 │   ├── services.ts            ← Array servizi, tipi Service/IncludedService, URL Calendly placeholder
 │   ├── contact.ts             ← Dati contatto (email, tel, Instagram) e location, tipi ContactInfo/Location
 │   ├── navigation.ts          ← Voci navbar: interface NavLink, NAV_LINKS (Chi sono, Servizi, Blog, Contatti)
+│   ├── about.ts               ← AboutContent: bio, foto, filosofia (4 valori), credenziali — placeholder realistico
 │   └── professional.ts        ← Dati professionali footer: nome, titolo, albo (placeholder alboNumber)
 └── lib/
     └── fonts.ts               ← Cormorant Garamond + DM Sans con variabili CSS
@@ -97,9 +101,9 @@ npx tsc --noEmit # type check
 ```
 
 ## Recent Changes
+- 006-chi-sono: Added TypeScript 5+ strict + noUncheckedIndexedAccess + Next.js 15 App Router, Tailwind CSS v4, next/image
+- 006-chi-sono: Added [if applicable, e.g., PostgreSQL, CoreData, files or N/A]
 - 002-sezione-servizi: Added TypeScript 5+ strict + noUncheckedIndexedAccess, Node.js 20 LTS + Next.js 15 App Router, `next/navigation` (usePathname), Tailwind CSS v4, clsx + tailwind-merge
-- 002-sezione-servizi: Added TypeScript 5+ strict + noUncheckedIndexedAccess, Node.js 20 LTS + Next.js 15 App Router, next-sitemap, next/script (Plausible), Tailwind CSS v4
-- 002-sezione-servizi: Added TypeScript 5+ strict, Node.js 20 LTS + Next.js 15 App Router, Tailwind CSS v4, design system 001
 
 
 <!-- MANUAL ADDITIONS START -->
