@@ -112,29 +112,23 @@ export default function AboutPage() {
             >
               Formazione
             </h2>
-            <ul className="flex flex-col gap-4 mt-8">
+            <ul className="flex flex-col gap-3 mt-8">
               {ABOUT_CONTENT.credentials.map((c) => (
-                <li key={c.title} className="flex gap-4">
-                  <span
-                    className="text-label font-semibold w-12 shrink-0"
-                    style={{ color: 'var(--color-primary-600)' }}
+                <li key={c.title} className="flex flex-col gap-0.5">
+                  <p
+                    className="text-body-md font-semibold"
+                    style={{ color: 'var(--color-neutral-900)' }}
                   >
-                    {c.year}
-                  </span>
-                  <div>
-                    <p
-                      className="text-body-md font-semibold"
-                      style={{ color: 'var(--color-neutral-900)' }}
-                    >
-                      {c.title}
-                    </p>
+                    {c.title}
+                  </p>
+                  {c.institution && (
                     <p
                       className="text-body-sm"
                       style={{ color: 'var(--color-neutral-600)' }}
                     >
                       {c.institution}
                     </p>
-                  </div>
+                  )}
                 </li>
               ))}
             </ul>

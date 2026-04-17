@@ -12,9 +12,9 @@ export interface PhilosophyValue {
 }
 
 export interface Credential {
-  year: string
+  year?: string
   title: string
-  institution: string
+  institution?: string
 }
 
 export interface AboutContent {
@@ -67,9 +67,45 @@ e il suo stile di vita.`,
 
   credentials: [
     {
-      year: '2020',
-      title: 'Laurea Magistrale in Biologia — indirizzo Nutrizionale',
-      institution: 'Università degli Studi [da aggiornare]',
+      title: 'Laurea Triennale in Biologia della Nutrizione',
+    },
+    {
+      title: 'Laurea Magistrale in Biologia Molecolare, Sanitaria e della Nutrizione',
+    },
+    {
+      title: 'Corso di formazione in Nutrizione Sportiva "Eat to Perform"',
+      institution: 'Scuola di Nutrizione Salernitana',
+    },
+    {
+      title: 'Corso di Formazione in Nutrizione Applicata "Dalla Scienza al Campo"',
+      institution: 'Dolikos',
+    },
+    {
+      title: 'Corso di Formazione "IBS e dieta Low FODMAP"',
+      institution: 'Scuola di Nutrizione Salernitana',
+    },
+    {
+      title: 'Corso di Aggiornamento "Integrazione nello Sport"',
+      institution: 'Scuola di Nutrizione Salernitana',
+    },
+    {
+      title: 'Seminario "Strategie proteiche per l\'ottimizzazione della risposta insulinica nell\'attività fisica"',
+      institution: 'SIFA',
+    },
+    {
+      title: 'Seminario "Lipedema e Linfedema"',
+      institution: 'Scuola di Nutrizione Salernitana',
+    },
+    {
+      title: 'Seminario "Psoriasi e Artrite Psoriasica: il ruolo dell\'alimentazione nella gestione della malattia"',
+      institution: 'SIFA',
+    },
+    {
+      title: 'Corso monotematico in Medicina Biointegrata',
+      institution: 'FOD. MED. SRL',
+    },
+    {
+      title: 'Tirocinio formativo post-laurea di 150 ore',
     },
   ],
 }
