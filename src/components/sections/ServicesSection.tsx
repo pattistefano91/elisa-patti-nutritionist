@@ -12,6 +12,7 @@ import {
   type Service,
   type IncludedService,
 } from '@/data/services'
+import { CONTACT } from '@/data/contact'
 
 function openCalendly(url: string): void {
   if (typeof window !== 'undefined' && (window as any).Calendly) {
@@ -120,10 +121,10 @@ function ServiceCard({ service }: { service: Service }) {
           variant="secondary"
           size="md"
           className="w-full mt-auto"
-          onClick={() => { window.location.href = '/#contatti' }}
-          aria-label={`Contatta per ${service.name}`}
+          onClick={() => window.open(CONTACT.whatsappUrl, '_blank', 'noopener,noreferrer')}
+          aria-label={`Contatta su WhatsApp per ${service.name}`}
         >
-          Contattami
+          Scrivimi su WhatsApp
         </Button>
       )}
     </Card>
