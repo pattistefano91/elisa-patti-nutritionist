@@ -1,5 +1,7 @@
 export type ServiceMode = 'studio' | 'online' | 'entrambe'
 
+export type BookingType = 'calendly' | 'contact'
+
 export interface Service {
   id: string
   name: string
@@ -9,7 +11,8 @@ export interface Service {
   modeLabel: string
   tag?: string
   tagVariant?: 'primary' | 'secondary' | 'accent' | 'neutral'
-  calendlyUrl: string
+  bookingType: BookingType
+  calendlyUrl?: string
   bullets?: string[]
   featured?: boolean
   hideCta?: boolean
@@ -34,7 +37,8 @@ export const SERVICES: Service[] = [
     modeLabel: 'Online / Telefono',
     tag: 'Gratuita',
     tagVariant: 'accent',
-    calendlyUrl: 'https://calendly.com/elisapatti/consulenza-gratuita',
+    bookingType: 'calendly',
+    calendlyUrl: 'https://calendly.com/nutrizionista-elisapatti/consulenza-gratuita',
     featured: true,
   },
   {
@@ -45,7 +49,7 @@ export const SERVICES: Service[] = [
     duration: '60 min',
     mode: 'studio',
     modeLabel: 'In studio',
-    calendlyUrl: 'https://calendly.com/elisapatti/prima-visita',
+    bookingType: 'contact',
     bullets: [
       'Valutazione corporea completa (peso, BIA, plicometria)',
       'Analisi esami ematochimici e diagnostici',
@@ -60,7 +64,7 @@ export const SERVICES: Service[] = [
     duration: '45 min',
     mode: 'studio',
     modeLabel: 'In studio',
-    calendlyUrl: 'https://calendly.com/elisapatti/visita-controllo',
+    bookingType: 'contact',
     bullets: [
       'Aggiornamento del piano alimentare',
       'Monitoraggio progressi e misurazioni',
@@ -76,7 +80,7 @@ export const SERVICES: Service[] = [
     duration: '60 min',
     mode: 'online',
     modeLabel: 'Videochiamata',
-    calendlyUrl: 'https://calendly.com/elisapatti/visita-online',
+    bookingType: 'contact',
     bullets: [
       'Stessa qualità della visita in studio',
       'Comoda e flessibile, ovunque tu sia',
@@ -96,4 +100,4 @@ export const INCLUDED_SERVICES: IncludedService[] = [
   },
 ]
 
-export const SERVICES_CTA_URL = SERVICES[0]!.calendlyUrl
+export const SERVICES_CTA_URL = SERVICES[0]!.calendlyUrl!

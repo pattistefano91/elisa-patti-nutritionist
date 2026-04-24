@@ -8,7 +8,7 @@ interface AboutCTAProps {
 
 function openCalendly() {
   ;(window as any).Calendly?.initPopupWidget({
-    url: 'https://calendly.com/elisapatti',
+    url: 'https://calendly.com/nutrizionista-elisapatti/consulenza-gratuita',
   })
 }
 
