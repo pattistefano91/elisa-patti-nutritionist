@@ -16,7 +16,7 @@ export default function AboutCTA({ compact = false }: AboutCTAProps) {
   if (compact) {
     return (
       <Button variant="primary" size="lg" onClick={openCalendly}>
-        Prenota ora
+        Prenota consulenza gratuita
       </Button>
     )
   }
