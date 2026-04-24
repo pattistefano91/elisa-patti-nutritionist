@@ -15,7 +15,7 @@ export interface ReviewsConfig {
 
 export const REVIEWS_CONFIG: ReviewsConfig = {
   averageRating: 5.0,
-  totalCount: 8,
+  totalCount: 38,
   googleUrl:
     'https://www.google.com/search?q=Biologa+Nutrizionista+Dott.ssa+Patti+Elisa',
   reviews: [
