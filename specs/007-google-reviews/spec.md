@@ -71,7 +71,7 @@ Il visitatore vuole controllare recensioni specifiche senza aspettare lo scorrim
 - **FR-006**: Il carousel DEVE supportare la navigazione manuale tramite frecce o indicatori dot
 - **FR-007**: La sezione DEVE includere un link "Vedi su Google" che apre il profilo Google della Dott.ssa in una nuova tab
 - **FR-008**: Il carousel DEVE essere navigabile con swipe orizzontale su dispositivi touch (mobile/tablet)
-- **FR-009**: I dati delle recensioni DEVONO essere gestiti in un file dati strutturato, facilmente aggiornabile senza toccare i componenti
+- **FR-009**: I testi delle recensioni DEVONO essere recuperati automaticamente da Google Places API quando le variabili d'ambiente sono configurate (fino a 5 recensioni, selezionate da Google); il file dati strutturato `src/data/reviews.ts` funge da fallback quando l'API non è disponibile
 - **FR-010**: Le recensioni con testo superiore a 200 caratteri DEVONO essere troncate con indicazione visiva
 - **FR-011**: La sezione DEVE essere accessibile: navigazione da tastiera (Tab/Enter/Space sui controlli prev/next), attributi aria per screen reader, contrasto testo ≥ 4.5:1 (WCAG 2.1 AA)
 
@@ -96,11 +96,10 @@ Il visitatore vuole controllare recensioni specifiche senza aspettare lo scorrim
 
 ## Assumptions
 
-- Le recensioni (testi singoli) sono inserite manualmente nel data file; il punteggio medio e il totale vengono invece recuperati automaticamente tramite Google Places API server-side (cache 24h)
+- Punteggio medio, totale recensioni e testi delle singole recensioni vengono recuperati automaticamente tramite Google Places API server-side (cache 24h, singola richiesta)
+- Google Places API restituisce al massimo 5 recensioni per richiesta; in caso di API non configurata il fallback usa 8 recensioni curate nel file `src/data/reviews.ts`
 - Il profilo Google della Dott.ssa è raggiungibile tramite il link fornito nella ricerca Google
-- La sincronizzazione automatica richiede due variabili d'ambiente: `GOOGLE_PLACES_API_KEY` e `GOOGLE_PLACE_ID`; in assenza delle variabili il sistema usa i valori di fallback dal file dati
-- Il numero di recensioni iniziali è tra 5 e 20 (gestibile con carousel infinito)
+- La sincronizzazione automatica richiede due variabili d'ambiente: `GOOGLE_PLACES_API_KEY` e `GOOGLE_PLACE_ID`; in assenza il sistema usa i valori di fallback completi (testi + rating + totale) dal file dati
 - L'animazione del carousel usa CSS/JS lato client; non richiede librerie aggiuntive pesanti
 - La sezione è posizionata nella homepage tra `ServicesSection` e `ContactSection`
-- Le foto profilo dei recensori non sono disponibili (solo initials come avatar, per privacy e semplicità)
-- Il rating medio e il totale recensioni sono impostati manualmente nel data file e aggiornati periodicamente dalla Dott.ssa (o su richiesta)
+- Le foto profilo dei recensori non sono disponibili tramite API pubblica (solo initials come avatar, per privacy e semplicità)

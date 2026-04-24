@@ -46,13 +46,19 @@ Dati live recuperati server-side da Google Places API. Sovrascrivono i valori di
 interface GooglePlacesStats {
   rating: number          // punteggio medio live da Google
   userRatingCount: number // totale recensioni live da Google
+  reviews: Review[]       // fino a 5 recensioni live (selezionate da Google per rilevanza)
 }
 ```
 
 **Flusso dati**:
 1. Server Component (`page.tsx`) chiama `getGooglePlacesStats()` → `GooglePlacesStats | null`
 2. Passa i risultati come prop a `<ReviewsSection googleStats={...} />`
-3. `ReviewsSection` usa `googleStats.rating` se disponibile, altrimenti `REVIEWS_CONFIG.averageRating`
+3. `ReviewsSection` usa i dati live se disponibili, altrimenti il fallback da `REVIEWS_CONFIG`:
+   - `googleStats.rating` → `REVIEWS_CONFIG.averageRating`
+   - `googleStats.userRatingCount` → `REVIEWS_CONFIG.totalCount`
+   - `googleStats.reviews` (se non vuoto) → `REVIEWS_CONFIG.reviews`
+
+**Limitazione API**: Google Places API restituisce al massimo 5 recensioni per richiesta, selezionate automaticamente per rilevanza. Non è possibile richiedere un numero maggiore o scegliere quali recensioni mostrare.
 
 **Env vars richieste**:
 - `GOOGLE_PLACES_API_KEY` — chiave API Google Cloud (Places API abilitata)

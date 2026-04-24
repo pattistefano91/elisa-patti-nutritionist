@@ -118,9 +118,22 @@ Ordine: T004 → T005 → T006 → T007
 
 ---
 
+## Phase 6: Enhancement — Auto-fetch testi recensioni da Google Places API
+
+**Goal**: Estendere `getGooglePlacesStats()` per recuperare automaticamente anche i testi delle recensioni, eliminando la necessità di aggiornamento manuale
+
+**Independent Test**: Con API configurata il carousel mostra recensioni reali da Google; senza API mostra il fallback statico
+
+- [x] T013 [P] Extend `getGooglePlacesStats()` in `src/lib/googlePlaces.ts`: add `reviews` to `fields` param, add `&language=it`, parse `rawReviews` array → `Review[]` mapping (`author_name`, `rating`, `text`, `relative_time_description`, `time`), add `reviews: Review[]` to `GooglePlacesStats` interface; update `ReviewsSection.tsx` to use `googleStats.reviews` when non-empty, fallback to `REVIEWS_CONFIG.reviews`
+
+**Checkpoint**: `npx tsc --noEmit` passa; con API configurata il carousel mostra recensioni reali; senza API mostra le 8 recensioni fallback di `reviews.ts`
+
+---
+
 ## Notes
 
 - Non sono richiesti test automatici per questa feature (componente visivo/statico)
-- Le recensioni placeholder verranno sostituite con dati reali dalla Dott.ssa dopo il deploy
+- Google Places API restituisce al massimo 5 recensioni, selezionate per rilevanza — non è possibile ottenere tutte le 38
 - `stopOnInteraction: false` su Embla Autoplay: il carousel riprende dopo click/swipe manuale
 - L'avatar color è deterministico (`author.charCodeAt(0) % palette.length`) — nessuna dipendenza esterna
+- Il fallback statico in `reviews.ts` è ancora necessario per ambienti senza API configurata (sviluppo locale, preview deploy)
