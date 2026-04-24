@@ -36,7 +36,7 @@ export default function RootLayout({
         <Footer />
         <Script
           src="https://assets.calendly.com/assets/external/widget.js"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
         />
         {plausibleDomain && (
           <Script

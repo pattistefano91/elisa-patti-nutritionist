@@ -1,7 +1,7 @@
 import Image from 'next/image'
-import { Button } from '@/components/ui/Button'
 import { Divider } from '@/components/ui/Divider'
 import { BlobHero } from '@/components/shapes/BlobHero'
+import { HeroCTA } from '@/components/sections/HeroCTA'
 import { ServicesSection } from '@/components/sections/ServicesSection'
 import { ContactSection } from '@/components/sections/ContactSection'
 
@@ -51,17 +51,7 @@ export default function Home() {
                 Con un approccio umano e scientifico.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button variant="primary" size="lg">
-                  Prenota consulenza gratuita
-                </Button>
-                <a
-                  href="#servizi"
-                  className="inline-flex items-center justify-center gap-2 rounded-full font-medium transition-all duration-[150ms] cursor-pointer select-none px-8 py-4 text-lg bg-[#F2F5EF] text-[#374E30] border border-[#C2D3B8] hover:bg-[#E0E9DA] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5E8350]"
-                >
-                  Scopri i servizi
-                </a>
-              </div>
+              <HeroCTA />
             </div>
 
             {/* ── Colonna destra: foto ── */}
