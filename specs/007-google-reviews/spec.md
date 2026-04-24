@@ -73,7 +73,7 @@ Il visitatore vuole controllare recensioni specifiche senza aspettare lo scorrim
 - **FR-008**: Il carousel DEVE essere navigabile con swipe orizzontale su dispositivi touch (mobile/tablet)
 - **FR-009**: I dati delle recensioni DEVONO essere gestiti in un file dati strutturato, facilmente aggiornabile senza toccare i componenti
 - **FR-010**: Le recensioni con testo superiore a 200 caratteri DEVONO essere troncate con indicazione visiva
-- **FR-011**: La sezione DEVE essere accessibile: navigazione da tastiera, attributi aria per screen reader, contrasto sufficiente
+- **FR-011**: La sezione DEVE essere accessibile: navigazione da tastiera (Tab/Enter/Space sui controlli prev/next), attributi aria per screen reader, contrasto testo ≥ 4.5:1 (WCAG 2.1 AA)
 
 ### Key Entities
 

@@ -90,7 +90,7 @@ Creare `src/components/sections/ReviewsSection.tsx` (`'use client'`):
 **Struttura interna**:
 - `ReviewCard` — card singola recensione: avatar initials, stelle SVG, testo (troncato a 200 char), nome, data
 - `StarRating` — 5 stelle SVG, riempite in base al rating
-- `ReviewsCarousel` — wrapper Embla con autoplay + hover pause + swipe
+- `ReviewsCarousel` — wrapper Embla con autoplay + hover pause + swipe + `loop: true` (scorrimento ciclico infinito)
 - `ReviewsSection` — sezione completa: header con badge rating, carousel, link Google
 
 **Layout responsive**:

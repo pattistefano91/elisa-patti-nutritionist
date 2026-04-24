@@ -23,7 +23,7 @@
 
 ⚠️ **CRITICAL**: nessuna implementazione UI può iniziare finché questo phase non è completo
 
-- [ ] T002 [P] Create `Review` and `ReviewsConfig` TypeScript interfaces in `src/data/reviews.ts`
+- [ ] T002 Create `Review` and `ReviewsConfig` TypeScript interfaces in `src/data/reviews.ts`
 - [ ] T003 Populate `REVIEWS_CONFIG` export in `src/data/reviews.ts` with 5 realistic placeholder reviews (author, rating 5, text, date), averageRating: 5.0, totalCount: 8, googleUrl stable
 
 **Checkpoint**: `src/data/reviews.ts` esporta `REVIEWS_CONFIG` correttamente tipizzato, `npx tsc --noEmit` passa
@@ -68,7 +68,7 @@
 
 - [ ] T010 Add `<ReviewsSection />` import and render in `src/app/page.tsx` between `<ServicesSection />` and `<ContactSection />`, with `<Divider />` separators
 - [ ] T011 [P] Run `npx tsc --noEmit` and resolve any TypeScript errors in `src/components/sections/ReviewsSection.tsx` and `src/data/reviews.ts`
-- [ ] T012 [P] Verify responsive layout in browser DevTools: 375px → 1 card, 768px → 2 card, 1280px → 3 card; verify `aria-label` on arrows and section for screen reader accessibility
+- [ ] T012 [P] Verify responsive layout in browser DevTools: 375px → 1 card, 768px → 2 card, 1280px → 3 card; verify keyboard navigation (Tab/Enter/Space on prev/next buttons); verify `aria-label` on arrows and section; check Embla bundle in Network tab (≤ 15kb gzipped)
 
 ---
 
@@ -84,7 +84,7 @@
 
 ### Parallel Opportunities
 
-- T002 può partire appena T001 è completo (stesso file, ma solo types — nessun conflitto con T003)
+- T002 è sequenziale in Phase 2 (T003 dipende da T002 — stesso file)
 - T011 e T012 sono indipendenti (type check vs visual check) — paralleli
 
 ---
