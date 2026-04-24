@@ -5,8 +5,10 @@ import { HeroCTA } from '@/components/sections/HeroCTA'
 import { ServicesSection } from '@/components/sections/ServicesSection'
 import { ReviewsSection } from '@/components/sections/ReviewsSection'
 import { ContactSection } from '@/components/sections/ContactSection'
+import { getGooglePlacesStats } from '@/lib/googlePlaces'
 
-export default function Home() {
+export default async function Home() {
+  const googleStats = await getGooglePlacesStats()
   return (
     <>
       <main
@@ -111,7 +113,7 @@ export default function Home() {
       <Divider />
       <ServicesSection />
       <Divider />
-      <ReviewsSection />
+      <ReviewsSection googleStats={googleStats} />
       <Divider />
       <ContactSection />
     </>

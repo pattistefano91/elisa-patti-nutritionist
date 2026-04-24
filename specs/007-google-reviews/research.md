@@ -23,12 +23,13 @@
 
 **Decision**: File statico `src/data/reviews.ts` con dati curati manualmente
 
-**Rationale**: L'embed nativo Google (widget Places o iframe) carica script di tracking Google senza consenso esplicito dell'utente — violazione diretta del Principio V (GDPR). Google Places API richiede backend (chiave API segreta), Google Cloud account, billing abilitato e latenza di rete aggiuntiva — violazione Principio VII (YAGNI) e Principio IV (performance). Il file statico è coerente con il pattern di tutto il progetto (`contact.ts`, `services.ts`, `about.ts`) e permette aggiornamenti senza dipendenze esterne. Svantaggio: aggiornamento manuale. Mitigazione: la struttura dati è identica a ciò che Sanity fornirebbe, rendendo la migrazione futura una sostituzione 1:1 dell'import.
+**Rationale (aggiornato)**: La decisione iniziale era dati statici per semplicità. Requisito aggiornato: punteggio medio e totale recensioni devono sincronizzarsi automaticamente con Google. La soluzione adottata usa Google Places Details API server-side (Next.js Server Component + `fetch` con `next: { revalidate: 86400 }`) — la chiave API rimane segreta nel server, zero tracking lato client, costo trascurabile (1 request/24h per visit = ~$0.002/mese). I testi delle singole recensioni rimangono statici (curati manualmente) perché l'API restituisce al massimo 5 recensioni e non permette di ottenere tutte le 38. L'embed iframe è ancora escluso (GDPR, Principio V).
 
 **Alternatives considered**:
-- Google Places API → richiede backend + API key + costi, violazione YAGNI e IV
-- Google Embed iframe → carica tracker Google, violazione GDPR (Principio V)
-- Widget di terze parti (Trustpilot, Elfsight) → iframe con tracker, GDPR + performance
+- Google Embed iframe → carica tracker Google, violazione GDPR (Principio V) — escluso
+- Widget terze parti (Trustpilot, Elfsight) → iframe con tracker — escluso
+- Fetch client-side → espone API key, violazione sicurezza — escluso
+- Aggiornamento manuale → richiede intervento sviluppatore ad ogni nuova recensione — non soddisfa il requisito
 
 ---
 

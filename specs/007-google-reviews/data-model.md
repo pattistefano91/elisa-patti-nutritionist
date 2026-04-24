@@ -27,18 +27,36 @@ interface Review {
 
 ### `ReviewsConfig`
 
-Configurazione globale della sezione, esportata come `REVIEWS_CONFIG: ReviewsConfig`.
+Configurazione statica della sezione, esportata come `REVIEWS_CONFIG: ReviewsConfig`. Contiene i testi delle recensioni curate e i valori di **fallback** per rating e conteggio (usati solo se Google Places API non è configurata).
 
 ```typescript
 interface ReviewsConfig {
-  averageRating: number   // punteggio medio es. 4.9
-  totalCount: number      // numero totale recensioni su Google es. 27
+  averageRating: number   // fallback: usato se GOOGLE_PLACES_API_KEY non è impostata
+  totalCount: number      // fallback: usato se GOOGLE_PLACES_API_KEY non è impostata
   googleUrl: string       // URL stabile profilo Google
-  reviews: Review[]       // lista recensioni da mostrare nel carousel
+  reviews: Review[]       // lista recensioni curate da mostrare nel carousel
 }
 ```
 
-**Note**: `averageRating` e `totalCount` rispecchiano il valore reale su Google e vengono aggiornati manualmente quando arrivano nuove recensioni.
+### `GooglePlacesStats`
+
+Dati live recuperati server-side da Google Places API. Sovrascrivono i valori di fallback.
+
+```typescript
+interface GooglePlacesStats {
+  rating: number          // punteggio medio live da Google
+  userRatingCount: number // totale recensioni live da Google
+}
+```
+
+**Flusso dati**:
+1. Server Component (`page.tsx`) chiama `getGooglePlacesStats()` → `GooglePlacesStats | null`
+2. Passa i risultati come prop a `<ReviewsSection googleStats={...} />`
+3. `ReviewsSection` usa `googleStats.rating` se disponibile, altrimenti `REVIEWS_CONFIG.averageRating`
+
+**Env vars richieste**:
+- `GOOGLE_PLACES_API_KEY` — chiave API Google Cloud (Places API abilitata)
+- `GOOGLE_PLACE_ID` — Place ID del profilo Google della Dott.ssa (es. `ChIJ...`)
 
 ---
 
