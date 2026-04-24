@@ -12,6 +12,28 @@ export const metadata: Metadata = {
   description:
     'Percorsi nutrizionali personalizzati con la Dott.ssa Elisa Patti, Biologa Nutrizionista. Prenota la tua consulenza gratuita.',
   metadataBase: new URL('https://elisapatti.it'),
+  openGraph: {
+    title: 'Dott.ssa Elisa Patti — Biologa Nutrizionista',
+    description:
+      'Percorsi nutrizionali personalizzati con la Dott.ssa Elisa Patti, Biologa Nutrizionista. Prenota la tua consulenza gratuita.',
+    url: 'https://elisapatti.it',
+    siteName: 'Dott.ssa Elisa Patti',
+    locale: 'it_IT',
+    type: 'website',
+    images: [
+      {
+        url: '/images/dottoressa/elisa-patti-studio-1.jpg',
+        alt: 'Dott.ssa Elisa Patti, Biologa Nutrizionista',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Dott.ssa Elisa Patti — Biologa Nutrizionista',
+    description:
+      'Percorsi nutrizionali personalizzati con la Dott.ssa Elisa Patti, Biologa Nutrizionista. Prenota la tua consulenza gratuita.',
+    images: ['/images/dottoressa/elisa-patti-studio-1.jpg'],
+  },
 }
 
 export default function RootLayout({
