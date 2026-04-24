@@ -13,12 +13,7 @@ export default function PrivacyPage() {
         <div className="max-w-2xl mx-auto prose-like space-y-8">
           <h1 className="text-heading-2 text-neutral-900">Privacy Policy</h1>
           <p className="text-caption text-neutral-500">
-            Ultimo aggiornamento: aprile 2026 —{' '}
-            <em>
-              Questo documento è un placeholder. Il contenuto legale definitivo
-              sarà redatto dalla Dott.ssa Patti o da un legale prima del
-              go-live sul dominio reale.
-            </em>
+            Ultimo aggiornamento: aprile 2026
           </p>
 
           <section className="space-y-3">
