@@ -216,7 +216,8 @@ interface ReviewsSectionProps {
 export function ReviewsSection({ googleStats }: ReviewsSectionProps = {}) {
   const averageRating = googleStats?.rating ?? REVIEWS_CONFIG.averageRating
   const totalCount = googleStats?.userRatingCount ?? REVIEWS_CONFIG.totalCount
-  const { googleUrl, reviews } = REVIEWS_CONFIG
+  const { googleUrl } = REVIEWS_CONFIG
+  const reviews = googleStats?.reviews?.length ? googleStats.reviews : REVIEWS_CONFIG.reviews
 
   if (reviews.length === 0) return null
 

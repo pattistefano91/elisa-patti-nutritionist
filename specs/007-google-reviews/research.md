@@ -21,15 +21,17 @@
 
 ## Decision 2: Fonte dati recensioni — dati statici vs Google Places API vs embed nativo
 
-**Decision**: File statico `src/data/reviews.ts` con dati curati manualmente
+**Decision**: Google Places Details API server-side per punteggio, totale e testi recensioni; file statico `src/data/reviews.ts` come fallback
 
-**Rationale (aggiornato)**: La decisione iniziale era dati statici per semplicità. Requisito aggiornato: punteggio medio e totale recensioni devono sincronizzarsi automaticamente con Google. La soluzione adottata usa Google Places Details API server-side (Next.js Server Component + `fetch` con `next: { revalidate: 86400 }`) — la chiave API rimane segreta nel server, zero tracking lato client, costo trascurabile (1 request/24h per visit = ~$0.002/mese). I testi delle singole recensioni rimangono statici (curati manualmente) perché l'API restituisce al massimo 5 recensioni e non permette di ottenere tutte le 38. L'embed iframe è ancora escluso (GDPR, Principio V).
+**Rationale (aggiornato v2)**: La decisione iniziale era dati statici. Poi aggiornata a: API per punteggio/totale + testi statici. Ora aggiornata nuovamente: la Places API restituisce anche `reviews` (fino a 5, selezionate da Google per rilevanza) oltre a rating e totale. Tutte e tre le informazioni vengono sincronizzate automaticamente ogni 24h con un'unica chiamata API server-side. Il file statico `reviews.ts` funge da fallback completo (testi + rating + totale) quando l'API non è configurata. Costo invariato (~$0.002/mese, 1 request/24h). Zero tracking lato client. L'embed iframe è ancora escluso (GDPR, Principio V).
+
+**Limitazione nota**: Google Places API restituisce al massimo 5 recensioni per chiamata, selezionate dall'algoritmo Google (le più rilevanti/recenti). Non è possibile scegliere quali mostrare né ottenere tutte le 38. Con API: 5 recensioni reali automatiche; senza API: 8 recensioni curate manualmente come fallback.
 
 **Alternatives considered**:
 - Google Embed iframe → carica tracker Google, violazione GDPR (Principio V) — escluso
 - Widget terze parti (Trustpilot, Elfsight) → iframe con tracker — escluso
 - Fetch client-side → espone API key, violazione sicurezza — escluso
-- Aggiornamento manuale → richiede intervento sviluppatore ad ogni nuova recensione — non soddisfa il requisito
+- Aggiornamento manuale dei testi → richiede intervento sviluppatore — non soddisfa il requisito di automazione completa
 
 ---
 
