@@ -64,7 +64,7 @@ Il visitatore vuole controllare recensioni specifiche senza aspettare lo scorrim
 ### Functional Requirements
 
 - **FR-001**: Il sito DEVE mostrare una sezione di recensioni Google nella homepage, visibile tra la sezione servizi e la sezione contatti
-- **FR-002**: La sezione DEVE mostrare un badge con il punteggio medio (es. "4.9") e il numero totale di recensioni (es. "27 recensioni")
+- **FR-002**: La sezione DEVE mostrare un badge con il punteggio medio e il numero totale di recensioni recuperati automaticamente da Google; i valori devono aggiornarsi senza intervento manuale dello sviluppatore
 - **FR-003**: Le recensioni DEVONO essere presentate in un carousel a scorrimento automatico con intervallo di 4-5 secondi; su desktop sono visibili 3 card affiancate, su tablet 2, su mobile 1
 - **FR-004**: Ogni card recensione DEVE mostrare: nome del recensore, valutazione in stelle (1-5), testo della recensione, data
 - **FR-005**: Il carousel DEVE mettere in pausa lo scorrimento automatico quando il cursore è sopra la sezione (hover pause)
@@ -96,8 +96,9 @@ Il visitatore vuole controllare recensioni specifiche senza aspettare lo scorrim
 
 ## Assumptions
 
-- Le recensioni sono inserite manualmente nel data file a partire da quelle reali visibili su Google; non si usa un'API live (nessun backend, nessuna chiave API, zero costi aggiuntivi — coerente con l'architettura statica del sito)
+- Le recensioni (testi singoli) sono inserite manualmente nel data file; il punteggio medio e il totale vengono invece recuperati automaticamente tramite Google Places API server-side (cache 24h)
 - Il profilo Google della Dott.ssa è raggiungibile tramite il link fornito nella ricerca Google
+- La sincronizzazione automatica richiede due variabili d'ambiente: `GOOGLE_PLACES_API_KEY` e `GOOGLE_PLACE_ID`; in assenza delle variabili il sistema usa i valori di fallback dal file dati
 - Il numero di recensioni iniziali è tra 5 e 20 (gestibile con carousel infinito)
 - L'animazione del carousel usa CSS/JS lato client; non richiede librerie aggiuntive pesanti
 - La sezione è posizionata nella homepage tra `ServicesSection` e `ContactSection`

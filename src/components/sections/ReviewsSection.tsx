@@ -6,6 +6,7 @@ import Autoplay from 'embla-carousel-autoplay'
 import { motion } from 'framer-motion'
 import { Container } from '@/components/ui/Container'
 import { REVIEWS_CONFIG, type Review } from '@/data/reviews'
+import type { GooglePlacesStats } from '@/lib/googlePlaces'
 
 const AVATAR_PALETTE = [
   { bg: 'var(--color-primary-100)', text: 'var(--color-primary-700)' },
@@ -208,8 +209,14 @@ function ReviewsCarousel({ reviews }: { reviews: Review[] }) {
   )
 }
 
-export function ReviewsSection() {
-  const { averageRating, totalCount, googleUrl, reviews } = REVIEWS_CONFIG
+interface ReviewsSectionProps {
+  googleStats?: GooglePlacesStats | null
+}
+
+export function ReviewsSection({ googleStats }: ReviewsSectionProps = {}) {
+  const averageRating = googleStats?.rating ?? REVIEWS_CONFIG.averageRating
+  const totalCount = googleStats?.userRatingCount ?? REVIEWS_CONFIG.totalCount
+  const { googleUrl, reviews } = REVIEWS_CONFIG
 
   if (reviews.length === 0) return null
 
