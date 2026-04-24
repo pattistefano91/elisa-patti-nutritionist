@@ -32,10 +32,10 @@ persona in un percorso nutrizionale su misura, che rispetti le sue esigenze, i s
 e il suo stile di vita.`,
 
   photo: {
-    src: '/images/dottoressa/elisa-patti-studio-1.jpg',
-    alt: 'Dott.ssa Elisa Patti, Biologa Nutrizionista, nel suo studio a Civitanova Marche',
-    width: 800,
-    height: 1000,
+    src: '/images/dottoressa/elisa-patti-bio.jpg',
+    alt: 'Dott.ssa Elisa Patti, Biologa Nutrizionista',
+    width: 4032,
+    height: 3024,
   },
 
   philosophy: [

@@ -35,7 +35,7 @@
 
 **Rationale**: Le foto sono già in `public/images/dottoressa/`. `next/image` garantisce ottimizzazione automatica (WebP, lazy loading, preload LCP), indispensabile per rispettare il target LCP ≤ 2.5s della constitution. Bordi arrotondati (`rounded-2xl`) per rispettare il Principio I (design organico). Non serve `fill` perché le dimensioni del container sono note.
 
-**Photo da usare**: `elisa-patti-studio-1.jpg` come default (sostituibile via `src/data/about.ts`)
+**Photo da usare**: `elisa-patti-bio.jpg` — foto reale fornita dalla Dott.ssa (convertita da HEIC a JPG, 4032×3024)
 
 **Alternatives considered**:
 - `<img>` nativo → nessuna ottimizzazione automatica, viola Principio IV
