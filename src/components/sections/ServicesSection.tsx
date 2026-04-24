@@ -105,15 +105,25 @@ function ServiceCard({ service }: { service: Service }) {
         >
           Disponibile dopo la prima visita
         </p>
-      ) : (
+      ) : service.bookingType === 'calendly' ? (
         <Button
           variant={service.featured ? 'primary' : 'secondary'}
           size="md"
           className="w-full mt-auto"
-          onClick={() => openCalendly(service.calendlyUrl)}
+          onClick={() => openCalendly(service.calendlyUrl!)}
           aria-label={`Prenota ${service.name}`}
         >
           Prenota ora
+        </Button>
+      ) : (
+        <Button
+          variant="secondary"
+          size="md"
+          className="w-full mt-auto"
+          onClick={() => { window.location.href = '/#contatti' }}
+          aria-label={`Contatta per ${service.name}`}
+        >
+          Contattami
         </Button>
       )}
     </Card>
