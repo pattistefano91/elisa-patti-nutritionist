@@ -51,13 +51,21 @@ Il visitatore vuole controllare recensioni specifiche senza aspettare lo scorrim
 
 ---
 
+## Clarifications
+
+### Session 2026-04-24
+
+- Q: Quante card sono visibili contemporaneamente su desktop? → A: 3 card affiancate
+
+---
+
 ## Requirements *(mandatory)*
 
 ### Functional Requirements
 
 - **FR-001**: Il sito DEVE mostrare una sezione di recensioni Google nella homepage, visibile tra la sezione servizi e la sezione contatti
 - **FR-002**: La sezione DEVE mostrare un badge con il punteggio medio (es. "4.9") e il numero totale di recensioni (es. "27 recensioni")
-- **FR-003**: Le recensioni DEVONO essere presentate in un carousel a scorrimento automatico con intervallo di 4-5 secondi
+- **FR-003**: Le recensioni DEVONO essere presentate in un carousel a scorrimento automatico con intervallo di 4-5 secondi; su desktop sono visibili 3 card affiancate, su tablet 2, su mobile 1
 - **FR-004**: Ogni card recensione DEVE mostrare: nome del recensore, valutazione in stelle (1-5), testo della recensione, data
 - **FR-005**: Il carousel DEVE mettere in pausa lo scorrimento automatico quando il cursore è sopra la sezione (hover pause)
 - **FR-006**: Il carousel DEVE supportare la navigazione manuale tramite frecce o indicatori dot
