@@ -3,6 +3,7 @@ import { Divider } from '@/components/ui/Divider'
 import { BlobHero } from '@/components/shapes/BlobHero'
 import { HeroCTA } from '@/components/sections/HeroCTA'
 import { ServicesSection } from '@/components/sections/ServicesSection'
+import { ReviewsSection } from '@/components/sections/ReviewsSection'
 import { ContactSection } from '@/components/sections/ContactSection'
 
 export default function Home() {
@@ -109,6 +110,8 @@ export default function Home() {
 
       <Divider />
       <ServicesSection />
+      <Divider />
+      <ReviewsSection />
       <Divider />
       <ContactSection />
     </>
