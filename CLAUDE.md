@@ -1,6 +1,6 @@
 # ELISA PATTI Development Guidelines
 
-Auto-generated from all feature plans. Last updated: 2026-04-16
+Auto-generated from all feature plans. Last updated: 2026-04-28
 
 ## Active Technologies
 - TypeScript 5+ strict, Node.js 20 LTS + Next.js 15 App Router, Tailwind CSS v4, design system 001 (002-sezione-servizi)
@@ -11,6 +11,9 @@ Auto-generated from all feature plans. Last updated: 2026-04-16
 - N/A — dati statici in `src/data/navigation.ts` (002-sezione-servizi)
 - TypeScript 5+ strict + noUncheckedIndexedAccess + Next.js 15 App Router, Tailwind CSS v4, next/image (006-chi-sono)
 - N/A — dati statici in `src/data/about.ts` (006-chi-sono)
+- TypeScript 5+ strict + noUncheckedIndexedAccess, Node.js 20 LTS + Next.js 15 App Router, Tailwind CSS v4, Framer Motion 11, Embla Carousel (nuova dipendenza) (010-google-reviews)
+- N/A — dati statici in `src/data/reviews.ts` (010-google-reviews)
+- N/A — dati statici in `src/data/percorsi.ts` (015-percorsi-nutrizionali)
 
 - **Framework**: Next.js 15 (App Router), TypeScript strict + noUncheckedIndexedAccess, Node.js 20 LTS
 - **Styling**: Tailwind CSS v4 (`@theme` CSS-first, no tailwind.config.js), clsx + tailwind-merge
@@ -101,9 +104,9 @@ npx tsc --noEmit # type check
 ```
 
 ## Recent Changes
+- 015-percorsi-nutrizionali: Added TypeScript 5+ strict + noUncheckedIndexedAccess, Node.js 20 LTS + Next.js 15 App Router, Tailwind CSS v4, Framer Motion 11
+- 010-google-reviews: Added TypeScript 5+ strict + noUncheckedIndexedAccess, Node.js 20 LTS + Next.js 15 App Router, Tailwind CSS v4, Framer Motion 11, Embla Carousel (nuova dipendenza)
 - 006-chi-sono: Added TypeScript 5+ strict + noUncheckedIndexedAccess + Next.js 15 App Router, Tailwind CSS v4, next/image
-- 006-chi-sono: Added [if applicable, e.g., PostgreSQL, CoreData, files or N/A]
-- 002-sezione-servizi: Added TypeScript 5+ strict + noUncheckedIndexedAccess, Node.js 20 LTS + Next.js 15 App Router, `next/navigation` (usePathname), Tailwind CSS v4, clsx + tailwind-merge
 
 
 <!-- MANUAL ADDITIONS START -->
