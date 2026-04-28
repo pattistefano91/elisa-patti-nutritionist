@@ -4,16 +4,20 @@ import { Container } from '@/components/ui'
 import { ABOUT_CONTENT } from '@/data/about'
 import { PROFESSIONAL } from '@/data/professional'
 import AboutCTA from '@/components/sections/AboutCTA'
+import { JsonLd } from '@/components/JsonLd'
+import { breadcrumbSchema } from '@/data/seo'
 
 export const metadata: Metadata = {
-  title: 'Chi sono | Dott.ssa Elisa Patti',
+  title: 'Chi sono | Dott.ssa Elisa Patti — Biologa Nutrizionista Civitanova Marche',
   description:
-    'Scopri il percorso professionale della Dott.ssa Elisa Patti, Biologa Nutrizionista a Civitanova Marche. Formazione, filosofia nutrizionale e approccio al paziente.',
+    'Dott.ssa Elisa Patti, Biologa Nutrizionista a Civitanova Marche (MC). Scopri la sua formazione, filosofia nutrizionale e approccio personalizzato al paziente.',
 }
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen">
+    <>
+      <JsonLd data={breadcrumbSchema([{ name: 'Chi sono', url: '/about' }])} />
+      <main className="min-h-screen">
       {/* Sezione 1 — Hero split */}
       <section className="py-16 md:py-24">
         <Container>
@@ -151,5 +155,6 @@ export default function AboutPage() {
       {/* Sezione 4 — CTA */}
       <AboutCTA />
     </main>
+    </>
   )
 }

@@ -3,11 +3,13 @@ import { Container } from '@/components/ui'
 import { PercorsiHeroCTA } from '@/components/sections/PercorsiHeroCTA'
 import { PercorsoCardCTA } from '@/components/sections/PercorsoCardCTA'
 import { PERCORSI, type ColoreAccent } from '@/data/percorsi'
+import { JsonLd } from '@/components/JsonLd'
+import { breadcrumbSchema } from '@/data/seo'
 
 export const metadata: Metadata = {
-  title: 'Percorsi Nutrizionali | Dott.ssa Elisa Patti',
+  title: 'Percorsi Nutrizionali | Dott.ssa Elisa Patti — Civitanova Marche',
   description:
-    'Scopri i percorsi nutrizionali personalizzati della Dott.ssa Elisa Patti: metabolismo e glicemia, reset intestinale, performance nutrition.',
+    'Percorsi nutrizionali personalizzati a Civitanova Marche (MC): metabolismo e glicemia, reset intestinale, performance nutrition. Nutrizionista Elisa Patti.',
 }
 
 const COLOR_MAP: Record<ColoreAccent, { bg: string; border: string; accent: string; accentText: string }> = {
@@ -33,6 +35,8 @@ const COLOR_MAP: Record<ColoreAccent, { bg: string; border: string; accent: stri
 
 export default function PercorsiPage() {
   return (
+    <>
+      <JsonLd data={breadcrumbSchema([{ name: 'Percorsi Nutrizionali', url: '/percorsi' }])} />
     <main className="min-h-screen" style={{ backgroundColor: 'var(--color-surface-page)' }}>
 
       {/* ── Hero ── */}
@@ -187,5 +191,6 @@ export default function PercorsiPage() {
         </Container>
       </section>
     </main>
+    </>
   )
 }

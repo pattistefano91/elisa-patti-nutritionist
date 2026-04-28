@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Divider } from '@/components/ui/Divider'
 import { BlobHero } from '@/components/shapes/BlobHero'
@@ -6,11 +7,20 @@ import { ServicesSection } from '@/components/sections/ServicesSection'
 import { ReviewsSection } from '@/components/sections/ReviewsSection'
 import { ContactSection } from '@/components/sections/ContactSection'
 import { getGooglePlacesStats } from '@/lib/googlePlaces'
+import { JsonLd } from '@/components/JsonLd'
+import { LOCAL_BUSINESS_SCHEMA } from '@/data/seo'
+
+export const metadata: Metadata = {
+  title: 'Dott.ssa Elisa Patti — Biologa Nutrizionista a Civitanova Marche',
+  description:
+    'Biologa Nutrizionista a Civitanova Marche (MC). Percorsi personalizzati per metabolismo e glicemia, benessere intestinale, performance sportiva. Prima consulenza gratuita.',
+}
 
 export default async function Home() {
   const googleStats = await getGooglePlacesStats()
   return (
     <>
+      <JsonLd data={LOCAL_BUSINESS_SCHEMA} />
       <main
         className="relative min-h-screen overflow-hidden flex items-center"
         style={{ backgroundColor: 'var(--color-surface-page)' }}
