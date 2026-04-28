@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import { Container } from '@/components/ui'
 import { PercorsiHeroCTA } from '@/components/sections/PercorsiHeroCTA'
+import { PercorsoCardCTA } from '@/components/sections/PercorsoCardCTA'
 import { PERCORSI, type ColoreAccent } from '@/data/percorsi'
-import { SERVICES_CTA_URL } from '@/data/services'
 
 export const metadata: Metadata = {
   title: 'Percorsi Nutrizionali | Dott.ssa Elisa Patti',
@@ -29,16 +29,6 @@ const COLOR_MAP: Record<ColoreAccent, { bg: string; border: string; accent: stri
     accent: 'var(--color-accent-200)',
     accentText: 'var(--color-accent-600)',
   },
-}
-
-function openCalendlyInline() {
-  return `
-    if (window.Calendly) {
-      window.Calendly.initPopupWidget({ url: '${SERVICES_CTA_URL}' });
-    } else {
-      window.open('${SERVICES_CTA_URL}', '_blank', 'noopener,noreferrer');
-    }
-  `
 }
 
 export default function PercorsiPage() {
@@ -185,22 +175,7 @@ export default function PercorsiPage() {
 
                         {/* CTA */}
                         <div className="mt-auto pt-2">
-                          <button
-                            onClick={() => {
-                              if ((window as any).Calendly) {
-                                ;(window as any).Calendly.initPopupWidget({ url: SERVICES_CTA_URL })
-                              } else {
-                                window.open(SERVICES_CTA_URL, '_blank', 'noopener,noreferrer')
-                              }
-                            }}
-                            className="w-full rounded-full py-3 px-6 text-label font-semibold transition-opacity hover:opacity-80 cursor-pointer"
-                            style={{
-                              backgroundColor: colors.accentText,
-                              color: 'var(--color-surface-page)',
-                            }}
-                          >
-                            Prenota consulenza gratuita
-                          </button>
+                          <PercorsoCardCTA accentColor={colors.accentText} />
                         </div>
                       </div>
                     </article>
