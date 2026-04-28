@@ -3,20 +3,22 @@ import Script from 'next/script'
 import { fontDisplay, fontBody } from '@/lib/fonts'
 import Footer from '@/components/sections/Footer'
 import Navbar from '@/components/sections/Navbar'
+import { JsonLd } from '@/components/JsonLd'
+import { PERSON_SCHEMA, SITE_URL } from '@/data/seo'
 import './globals.css'
 
 const plausibleDomain = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN
 
 export const metadata: Metadata = {
-  title: 'Dott.ssa Elisa Patti — Biologa Nutrizionista',
+  title: 'Dott.ssa Elisa Patti — Biologa Nutrizionista a Civitanova Marche',
   description:
-    'Percorsi nutrizionali personalizzati con la Dott.ssa Elisa Patti, Biologa Nutrizionista. Prenota la tua consulenza gratuita.',
-  metadataBase: new URL('https://elisapatti.it'),
+    'Biologa Nutrizionista a Civitanova Marche (MC). Percorsi personalizzati per metabolismo, benessere intestinale e performance. Prenota la consulenza gratuita.',
+  metadataBase: new URL(SITE_URL),
   openGraph: {
-    title: 'Dott.ssa Elisa Patti — Biologa Nutrizionista',
+    title: 'Dott.ssa Elisa Patti — Biologa Nutrizionista a Civitanova Marche',
     description:
-      'Percorsi nutrizionali personalizzati con la Dott.ssa Elisa Patti, Biologa Nutrizionista. Prenota la tua consulenza gratuita.',
-    url: 'https://elisapatti.it',
+      'Biologa Nutrizionista a Civitanova Marche (MC). Percorsi personalizzati per metabolismo, benessere intestinale e performance. Prenota la consulenza gratuita.',
+    url: SITE_URL,
     siteName: 'Dott.ssa Elisa Patti',
     locale: 'it_IT',
     type: 'website',
@@ -29,9 +31,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Dott.ssa Elisa Patti — Biologa Nutrizionista',
+    title: 'Dott.ssa Elisa Patti — Biologa Nutrizionista a Civitanova Marche',
     description:
-      'Percorsi nutrizionali personalizzati con la Dott.ssa Elisa Patti, Biologa Nutrizionista. Prenota la tua consulenza gratuita.',
+      'Biologa Nutrizionista a Civitanova Marche (MC). Percorsi personalizzati per metabolismo, benessere intestinale e performance. Prenota la consulenza gratuita.',
     images: ['/images/dottoressa/elisa-patti-studio-1.jpg'],
   },
 }
@@ -53,6 +55,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col">
+        <JsonLd data={PERSON_SCHEMA} />
         <Navbar />
         {children}
         <Footer />
